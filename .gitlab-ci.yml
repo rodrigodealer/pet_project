@@ -1,11 +1,6 @@
 before_script:
   - bundle install
 
-test:2.1:
-  image: ruby:2.1
-  script:
-  - bundle exec rake spec
-
 test:2.2:
   image: ruby:2.2
   script:
