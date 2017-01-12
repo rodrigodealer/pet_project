@@ -1,10 +1,16 @@
+stages:
+  - test
+  - build
+
 test:2.2:
+  stage: test
   image: ruby:2.2
   script:
   - bundle install
   - bundle exec rake spec
 
 docker_image:
+  stage: build
   image: docker:git
   services:
     - docker:dind
