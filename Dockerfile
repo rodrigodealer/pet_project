@@ -1,10 +1,9 @@
 FROM ruby:2.4.0-slim
+MAINTAINER rodrigo.dealer@gmail.com
 
 ENV RAILS_ENV production
 
-RUN mkdir /myapp
 WORKDIR /myapp
-ADD Gemfile* /myapp/
 ADD . /myapp
 RUN apt-get update -qq && apt-get install -y build-essential libpq-dev nodejs \
   && bundle install
