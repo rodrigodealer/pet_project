@@ -9,6 +9,20 @@ test:2.2:
   - bundle install
   - bundle exec rake spec
 
+test:2.3:
+  stage: test
+  image: ruby:2.3
+  script:
+  - bundle install
+  - bundle exec rake spec
+
+test:latest:
+  stage: test
+  image: ruby:latest
+  script:
+  - bundle install
+  - bundle exec rake spec
+
 docker_image:
   stage: build
   image: docker:git
