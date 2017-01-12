@@ -1,12 +1,12 @@
-test:2.2:
-  image: ruby:2.2
-  script:
-  - bundle install
-  - bundle exec rake spec
+# test:2.2:
+#   image: ruby:2.2
+#   script:
+#   - bundle install
+#   - bundle exec rake spec
 
 docker_image:
-  image: gitlab/dind
+  image: ruby:2.2
   script:
   - apt-get update -y
-  - apt-get install ruby
+  - apt-get install docker-engine -y
   - bundle install
