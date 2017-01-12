@@ -9,9 +9,10 @@ docker_image:
   services:
     - docker:dind
   script:
-  - apt-add-repository ppa:brightbox/ruby-ng
-  - apt-get update
-  - apt-get install ruby2.3 ruby2.3-dev -y
+    - apk --update add --virtual build_deps build-base ruby-dev libc-dev linux-headers openssl-dev postgresql-dev libxml2-dev libxslt-dev
+  # - apt-add-repository ppa:brightbox/ruby-ng
+  # - apt-get update
+  # - apt-get install ruby2.3 ruby2.3-dev -y
   # - apt-get update -y
   # - apt-get install -y apt-transport-https ca-certificates gnupg2
   # - apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
