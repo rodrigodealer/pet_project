@@ -7,4 +7,6 @@ test:2.2:
 docker_image:
   image: gitlab/dind
   script:
+  - apt-get update -y
+  - apt-get install ruby
   - bundle install
