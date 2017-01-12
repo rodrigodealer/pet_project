@@ -19,5 +19,6 @@ docker_image:
   # - echo "deb https://apt.dockerproject.org/repo debian-jessie main" | tee /etc/apt/sources.list.d/docker.list
   # - apt-get update -y
   # - apt-get install docker-engine -y
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
   - docker build . -t registry.gitlab.com/rodrigodealer/pets:1.0.0
   - docker push registry.gitlab.com/rodrigodealer/pets
