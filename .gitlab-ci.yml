@@ -9,7 +9,7 @@ docker_image:
   services:
     - docker:dind
   script:
-    - apk add build_deps build-base ruby-dev libc-dev linux-headers openssl-dev postgresql-dev libxml2-dev libxslt-dev
+  - apk add build_deps build-base ruby-dev libc-dev linux-headers openssl-dev postgresql-dev libxml2-dev libxslt-dev
   # - apt-add-repository ppa:brightbox/ruby-ng
   # - apt-get update
   # - apt-get install ruby2.3 ruby2.3-dev -y
