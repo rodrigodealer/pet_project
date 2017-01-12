@@ -1,7 +1,11 @@
-before_script:
-  - bundle install
-
 test:2.2:
   image: ruby:2.2
   script:
+  - bundle install
   - bundle exec rake spec
+
+docker_image:
+  image: gitlab/dind
+  script:
+  - apt-get install ruby -y
+  - bundle install
