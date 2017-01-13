@@ -8,8 +8,8 @@ default: &default
   adapter: mysql2
   database: blog_development
   pool: 5
-  username: blog
-  password:
+  username: root
+  password: root
   host: localhost
 
 development:
@@ -23,3 +23,5 @@ test:
 
 production:
   <<: *default
+  username: <%= ENV['DB_USR'] %>
+  password: <%= ENV['DB_PWD'] %>
