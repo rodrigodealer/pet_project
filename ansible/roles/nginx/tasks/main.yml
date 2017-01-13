@@ -1,0 +1,6 @@
+---
+- name: Nginx package
+  become: yes
+  apt:
+    name: nginx
+    update_cache: yes

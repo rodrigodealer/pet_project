@@ -1,0 +1,9 @@
+---
+- name: Login to gitlab registry
+  command: docker login -u rodrigodealer -p JrN6MmaCfsUFoBLHsx6U  registry.gitlab.com
+
+- name: Pull image
+  docker_image:
+    state: present
+    name: registry.gitlab.com/rodrigodealer/pets
+    tag: 1.0.0

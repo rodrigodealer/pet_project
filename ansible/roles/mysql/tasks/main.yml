@@ -1,0 +1,6 @@
+---
+- name: MySQL package
+  become: yes
+  apt:
+    name: mysql-server
+    update_cache: yes

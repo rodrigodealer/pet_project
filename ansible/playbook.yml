@@ -1,0 +1,9 @@
+---
+- name: Install Services
+  hosts: all
+  roles:
+    - nginx
+    - angstwad.docker_ubuntu
+    - pets_rails_api
+    - mysql
+    - redis

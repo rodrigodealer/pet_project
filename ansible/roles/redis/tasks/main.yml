@@ -1,0 +1,6 @@
+---
+- name: Redis package
+  become: yes
+  apt:
+    name: redis-server
+    update_cache: yes
