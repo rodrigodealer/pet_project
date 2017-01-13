@@ -5,8 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
   database: blog_development
   pool: 5
   username: blog
