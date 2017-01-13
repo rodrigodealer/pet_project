@@ -1,8 +1,29 @@
 version: '2'
 services:
-  web:
-    build: .
-    volumes:
-      - .:/usr/src/app
+  db:
+     image: mysql:latest
+     ports:
+      - "127.0.0.1:3306:3306"
+     volumes:
+       - db_data:/var/lib/mysql
+     environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: pets
+       MYSQL_USER: root
+       MYSQL_PASSWORD: root
+  redis:
+    image: redis:latest
     ports:
-      - "3000:3000"
+      - "127.0.0.1:6379:6379"
+  elasticsearch:
+    image: elasticsearch:latest
+    ports:
+      - "127.0.0.1:9200:9200"
+      - "127.0.0.1:9300:9300"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+volumes:
+  db_data:
+    external: false
+  es_data:
+    external: false

@@ -1,24 +1,13 @@
-# README
+# Install Docker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+- https://docs.docker.com/docker-for-mac/
 
-Things you may want to cover:
+# Install Vagrant
 
-* Ruby version
+# Running the project
 
-* System dependencies
+$ mkdir db_data es_data
 
-* Configuration
+$ docker-compose up
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+$ rails server
