@@ -1,6 +1,9 @@
 ---
 - name: Login to gitlab registry
-  command: docker login -u rodrigodealer -p JrN6MmaCfsUFoBLHsx6U  registry.gitlab.com
+  docker_login:
+    registry: registry.gitlab.com
+    username: rodrigodealer
+    password: JrN6MmaCfsUFoBLHsx6U
 
 - name: Pull image
   docker_image:
