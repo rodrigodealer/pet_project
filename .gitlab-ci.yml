@@ -2,21 +2,6 @@ stages:
   - test
   - build
 
-test:2.2:
-  stage: test
-  image: ruby:2.2
-  services:
-  - mysql:latest
-  variables:
-    RAILS_ENV: ci
-    MYSQL_DATABASE: pets
-    MYSQL_ROOT_PASSWORD: root
-  script:
-  - bundle install
-  - bundle exec rails db:create RAILS_ENV=ci
-  - bundle exec rails db:migrate RAILS_ENV=ci
-  - bundle exec rake spec
-
 test:2.3:
   stage: test
   image: ruby:2.3
@@ -32,23 +17,7 @@ test:2.3:
   - bundle exec rails db:migrate RAILS_ENV=ci
   - bundle exec rake spec
 
-test:2.4:
-  stage: test
-  image: ruby:2.4
-  services:
-  - mysql:latest
-  variables:
-    RAILS_ENV: ci
-    MYSQL_DATABASE: pets
-    MYSQL_ROOT_PASSWORD: root
-  script:
-  - bundle install
-  - bundle exec rails db:create RAILS_ENV=ci
-  - bundle exec rails db:migrate RAILS_ENV=ci
-  - bundle exec rake spec
-
-
-test:latest:
+test:2.4_latest:
   stage: test
   image: ruby:latest
   services:
