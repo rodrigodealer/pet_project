@@ -5,8 +5,12 @@ stages:
 test:2.2:
   stage: test
   image: ruby:2.2
+  services:
+  - mysql:latest
+  variables:
+    MYSQL_DATABASE: pets
+    MYSQL_ROOT_PASSWORD: root
   script:
-  - apt-get install -y mysql-server
   - bundle install
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:migrate RAILS_ENV=test
@@ -15,8 +19,12 @@ test:2.2:
 test:2.3:
   stage: test
   image: ruby:2.3
+  services:
+  - mysql:latest
+  variables:
+    MYSQL_DATABASE: pets
+    MYSQL_ROOT_PASSWORD: root
   script:
-  - apt-get install -y mysql-server
   - bundle install
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:migrate RAILS_ENV=test
@@ -25,8 +33,12 @@ test:2.3:
 test:2.4:
   stage: test
   image: ruby:2.4
+  services:
+  - mysql:latest
+  variables:
+    MYSQL_DATABASE: pets
+    MYSQL_ROOT_PASSWORD: root
   script:
-  - apt-get install -y mysql-server
   - bundle install
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:migrate RAILS_ENV=test
@@ -36,8 +48,12 @@ test:2.4:
 test:latest:
   stage: test
   image: ruby:latest
+  services:
+  - mysql:latest
+  variables:
+    MYSQL_DATABASE: pets
+    MYSQL_ROOT_PASSWORD: root
   script:
-  - apt-get install -y mysql-server
   - bundle install
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:migrate RAILS_ENV=test
