@@ -22,8 +22,8 @@ test:
   <<: *default
 
 ci:
-  host: mysql
   <<: *default
+  host: mysql
 
 production:
   <<: *default
