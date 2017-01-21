@@ -6,21 +6,30 @@ test:2.2:
   stage: test
   image: ruby:2.2
   script:
+  - apt-get install -y mysql-server
   - bundle install
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rake spec
 
 test:2.3:
   stage: test
   image: ruby:2.3
   script:
+  - apt-get install -y mysql-server
   - bundle install
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rake spec
 
 test:2.4:
   stage: test
   image: ruby:2.4
   script:
+  - apt-get install -y mysql-server
   - bundle install
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rake spec
 
 
@@ -28,7 +37,10 @@ test:latest:
   stage: test
   image: ruby:latest
   script:
+  - apt-get install -y mysql-server
   - bundle install
+  - bundle exec rails db:create RAILS_ENV=test
+  - bundle exec rails db:migrate RAILS_ENV=test
   - bundle exec rake spec
 
 docker_image:
