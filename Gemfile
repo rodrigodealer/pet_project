@@ -20,6 +20,8 @@ gem 'therubyracer', :require => 'v8'
 
 gem 'rspec-core'
 gem 'rspec-rails'
+gem 'shoulda-matchers'
+gem 'factory_girl_rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
