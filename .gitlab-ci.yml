@@ -15,7 +15,7 @@ test:2.2:
   - bundle install
   - bundle exec rails db:create RAILS_ENV=ci
   - bundle exec rails db:migrate RAILS_ENV=ci
-  - bundle exec rake spec
+  - bundle exec rake spec RAILS_ENV=ci
 
 test:2.3:
   stage: test
@@ -30,7 +30,7 @@ test:2.3:
   - bundle install
   - bundle exec rails db:create RAILS_ENV=ci
   - bundle exec rails db:migrate RAILS_ENV=ci
-  - bundle exec rake spec
+  - bundle exec rake spec RAILS_ENV=ci
 
 test:2.4:
   stage: test
@@ -45,7 +45,7 @@ test:2.4:
   - bundle install
   - bundle exec rails db:create RAILS_ENV=ci
   - bundle exec rails db:migrate RAILS_ENV=ci
-  - bundle exec rake spec
+  - bundle exec rake spec RAILS_ENV=ci
 
 
 test:latest:
@@ -61,7 +61,7 @@ test:latest:
   - bundle install
   - bundle exec rails db:create RAILS_ENV=ci
   - bundle exec rails db:migrate RAILS_ENV=ci
-  - bundle exec rake spec
+  - bundle exec rake spec RAILS_ENV=ci
 
 docker_image:
   stage: build
