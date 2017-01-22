@@ -4,3 +4,7 @@
   apt:
     name: mysql-server
     update_cache: yes
+
+- name: Set root password
+  become: yes
+  command: mysqladmin -u root password o9rmVgJTpLa4tPPKr6iuMdM838kcizKeNE6XYf9oHfxXuK3pTGGeq7rDuPeEoWdk

@@ -1,12 +1,8 @@
 ---
 - name: Login to gitlab registry
-  docker_login:
-    registry: registry.gitlab.com
-    username: rodrigodealer
-    password: JrN6MmaCfsUFoBLHsx6U
+  become: yes
+  command: docker login registry.gitlab.com -u rodrigodealer -p JrN6MmaCfsUFoBLHsx6U
 
 - name: Pull image
-  docker_image:
-    state: present
-    name: registry.gitlab.com/rodrigodealer/pets
-    tag: 1.0.0
+  become: yes
+  command: docker pull registry.gitlab.com/rodrigodealer/pets:1.0.0
