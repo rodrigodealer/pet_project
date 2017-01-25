@@ -22,7 +22,17 @@
     group: users
     mode: 0644
 
+- name: Database migration
+  copy:
+    src: ../files/db_migrate.sh
+    dest: /tmp/db_migrate.sh
+  become: yes
+
 - service:
     name: pets
     state: restarted
+  become: yes
+
+- name: Execute migration
+  command: sh /tmp/db_migrate.sh > /tmp/log.txt
   become: yes
