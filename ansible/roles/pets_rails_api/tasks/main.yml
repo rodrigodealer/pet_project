@@ -1,4 +1,10 @@
 ---
+- name: Restart docker
+  service:
+    name: docker
+    state: restarted
+  become: yes
+
 - name: Login to gitlab registry
   become: yes
   command: docker login registry.gitlab.com -u rodrigodealer -p JrN6MmaCfsUFoBLHsx6U
@@ -6,3 +12,17 @@
 - name: Pull image
   become: yes
   command: docker pull registry.gitlab.com/rodrigodealer/pets:1.0.0
+
+- name: Copy upstart script for pets
+  become: yes
+  template:
+    src: ../files/pets_api.j2
+    dest: /etc/init/pets.conf
+    owner: bin
+    group: users
+    mode: 0644
+
+- service:
+    name: pets
+    state: restarted
+  become: yes

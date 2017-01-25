@@ -1,10 +1,21 @@
 ---
+
+- name: Check if mysql is installed
+  command: dpkg-query -l mysql-server
+  register: mysql_installed
+  ignore_errors: yes
+
 - name: MySQL package
   become: yes
   apt:
     name: mysql-server
     update_cache: yes
 
+- service:
+    name: mysql
+    state: started
+
 - name: Set root password
   become: yes
   command: mysqladmin -u root password o9rmVgJTpLa4tPPKr6iuMdM838kcizKeNE6XYf9oHfxXuK3pTGGeq7rDuPeEoWdk
+  when: mysql_installed.rc != 0
