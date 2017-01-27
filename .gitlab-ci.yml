@@ -52,7 +52,7 @@ docker_image:
 
 deploy:
   stage: deploy
-  image: node:latest
+  image: ruby:2.4
   script:
   - apt-add-repository ppa:ansible/ansible
   - apt-get update
