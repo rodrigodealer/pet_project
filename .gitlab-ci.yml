@@ -52,11 +52,10 @@ docker_image:
 
 deploy:
   stage: deploy
-  image: ruby:2.4
+  image: docker:git
   script:
-  - apt-add-repository ppa:ansible/ansible
-  - apt-get update
-  - apt-get install ansible
+  - apk add ansible
+  - ansible --version
   - cd ansible && ansible-playbook playbook.yml -l webserver -i hosts/hosts
   only:
   - master
