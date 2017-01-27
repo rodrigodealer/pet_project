@@ -52,10 +52,9 @@ docker_image:
 
 deploy:
   stage: deploy
-  image: ansible:ubuntu1404
+  image: ruby:latest
   script:
-  - apk --update add --virtual ansible 
-  - apk --update add --virtual sshpass 
+  - apt-get install ansible -y 
   - cd ansible && ansible-playbook playbook.yml -l webserver -i hosts/hosts
   only: 
   - master
