@@ -4,7 +4,7 @@ stages:
   - deploy
 
 test:2.3:
-  only: 
+  only:
   - test
   stage: test
   image: ruby:2.3
@@ -21,7 +21,7 @@ test:2.3:
   - bundle exec rake spec
 
 test:2.4_latest:
-  only: 
+  only:
   - test
   stage: test
   image: ruby:latest
@@ -38,7 +38,7 @@ test:2.4_latest:
   - bundle exec rake spec
 
 docker_image:
-  only: 
+  only:
   - test
   stage: build
   image: docker:git
@@ -54,7 +54,11 @@ deploy:
   stage: deploy
   image: ruby:latest
   script:
-  - apt-get install ansible -y 
+  - apt-get update
+  - apt-get install software-properties-common -y
+  - apt-add-repository ppa:ansible/ansible
+  - apt-get update
+  - apt-get install ansible
   - cd ansible && ansible-playbook playbook.yml -l webserver -i hosts/hosts
-  only: 
+  only:
   - master
