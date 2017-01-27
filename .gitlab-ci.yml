@@ -46,7 +46,7 @@ docker_image:
 
 deploy:
   stage: deploy
-  image: docker:git
+  image: ansible:ubuntu1404
   script:
   - apk --update add --virtual ansible 
   - apk --update add --virtual sshpass 
