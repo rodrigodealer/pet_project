@@ -54,7 +54,7 @@ deploy:
   stage: deploy
   image: docker:git
   script:
-  - apk add --virtual --update ansible
+  - apk add --update ansible
   - ansible --version
   - cd ansible && ansible-playbook playbook.yml -l webserver -i hosts/hosts
   only:
