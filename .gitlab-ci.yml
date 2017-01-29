@@ -5,7 +5,7 @@ stages:
 
 test:2.3:
   only:
-  - test
+  - master
   stage: test
   image: ruby:2.3
   services:
@@ -22,7 +22,7 @@ test:2.3:
 
 test:2.4_latest:
   only:
-  - test
+  - master
   stage: test
   image: ruby:latest
   services:
@@ -39,7 +39,7 @@ test:2.4_latest:
 
 docker_image:
   only:
-  - test
+  - master
   stage: build
   image: docker:git
   services:
@@ -50,16 +50,16 @@ docker_image:
   - docker build . -t registry.gitlab.com/rodrigodealer/pets:1.0.0
   - docker push registry.gitlab.com/rodrigodealer/pets
 
-deploy:
-  stage: deploy
-  image: docker:git
-  script:
-  - apk add --update ansible
-  - ansible --version
-  - apk add --update sshpass
-  - apk add --update openssh-client
-  - ssh-keygen -f id_rsa -t rsa -N ''
-  - sshpass -p f0e14876b2ae3102 ssh-copy-id -i id_rsa.pub root@207.154.198.244 -p 22 &>/dev/null &
-  - cd ansible && ansible-playbook playbook.yml -l webserver -i hosts/hosts
-  only:
-  - master
+#deploy:
+#  stage: deploy
+#  image: docker:git
+#  script:
+#  - apk add --update ansible
+#  - ansible --version
+#  - apk add --update sshpass
+#  - apk add --update openssh-client
+#  - ssh-keygen -f id_rsa -t rsa -N ''
+#  - sshpass -p f0e14876b2ae3102 ssh-copy-id -i id_rsa.pub root@207.154.198.244 -p 22 &>/dev/null &
+#  - cd ansible && ansible-playbook playbook.yml -l webserver -i hosts/hosts
+#  only:
+#  - master
