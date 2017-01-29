@@ -58,6 +58,7 @@ deploy:
   - ansible --version
   - apk add --update sshpass
   - apk add --update openssh-client
+  - ssh-keygen -f id_rsa -t rsa -N ''
   - sshpass -p f0e14876b2ae3102 ssh-copy-id root@207.154.198.244 -p 22
   - cd ansible && ansible-playbook playbook.yml -l webserver -i hosts/hosts
   only:
