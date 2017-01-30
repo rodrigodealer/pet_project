@@ -39,7 +39,7 @@ test:2.4_latest:
 
 docker_image:
   only:
-  - master
+  - production
   stage: build
   image: docker:git
   services:
