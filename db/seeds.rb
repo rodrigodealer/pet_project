@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+brand = Brand.create(name: 'Chalesco')
+
+size = ProductOption.create(name: 'Tamanho')
+color = ProductOption.create(name: 'Cor')
+type = ProductOption.create(name: 'Animal')
+
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  properties: { size.name => 'G', color.name => 'Preto', type.name => 'Gato' } )
+
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  properties: { size.name => 'G', color.name => 'Vermelho', type.name => 'Cachorro' } )
+
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  properties: { size.name => 'P', color.name => 'Laranja', type.name => 'Gato' } )
