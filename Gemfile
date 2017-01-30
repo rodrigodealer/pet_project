@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'execjs'
+gem 'devise'
 gem 'therubyracer', :require => 'v8'
 
 gem 'rspec-core'
