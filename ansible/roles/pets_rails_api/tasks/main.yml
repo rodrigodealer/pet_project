@@ -1,4 +1,12 @@
 ---
+- name: Create directory for uploads
+  file:
+    path: /var/uploads
+    owner: pets
+    group: users
+    mode: 064
+    state: directory
+
 - name: Restart docker
   service:
     name: docker
@@ -18,7 +26,7 @@
   template:
     src: ../files/pets_api.j2
     dest: /etc/init/pets.conf
-    owner: bin
+    owner: pets
     group: users
     mode: 0644
 
