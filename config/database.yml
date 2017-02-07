@@ -20,6 +20,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  adapter: sqlite3
   host: <%= ENV['GITLAB_CI'] ? 'mysql' : '127.0.0.1'  %>
 
 ci:

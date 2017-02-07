@@ -12,28 +12,27 @@
 
 ActiveRecord::Schema.define(version: 20170121173442) do
 
-  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "brands", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "product_options", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "products", force: :cascade do |t|
     t.string   "name"
-    t.text     "properties", limit: 65535
-    t.float    "price",      limit: 24
+    t.text     "properties"
+    t.float    "price"
     t.boolean  "available"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "brand_id"
-    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
+    t.index ["brand_id"], name: "index_products_on_brand_id"
   end
 
-  add_foreign_key "products", "brands"
 end

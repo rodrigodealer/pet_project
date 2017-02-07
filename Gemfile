@@ -8,6 +8,7 @@ end
 
 gem 'rails', '~> 5.0.1'
 gem 'mysql2'
+gem 'sqlite3'
 gem 'redis', '~>3.2'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'

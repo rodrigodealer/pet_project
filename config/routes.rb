@@ -3,5 +3,9 @@ Rails.application.routes.draw do
 
   get '/products',    to: 'products#index'
 
+  namespace :admin do
+    resources :products
+  end
+
   get '/healthcheck', to: 'healthcheck#index'
 end
