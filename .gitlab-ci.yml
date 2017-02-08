@@ -46,6 +46,7 @@ test:2.4_latest:
     paths:
       - coverage/
 pages:
+  image: ruby:2.3
   stage: publish
   script:
     - bundle install
