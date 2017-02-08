@@ -20,6 +20,10 @@ gem 'execjs', '2.7.0'
 gem 'devise', '~> 4.2.0'
 gem 'therubyracer', :require => 'v8'
 
+group :development do
+  gem 'web-console', '>= 3.3.0'  
+end
+
 group :test, :development do
   gem 'sqlite3', '1.3.13'
   gem 'rspec-core', '~>3.5.4'
@@ -27,7 +31,6 @@ group :test, :development do
   gem 'shoulda-matchers', '3.1.1'
   gem 'factory_girl_rails', '4.8.0'
   gem 'fuubar', '2.2.0'
-  gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring', '2.0.0'
   gem 'spring-watcher-listen', '~> 2.0.0'
