@@ -6,7 +6,7 @@ ENV RAILS_ENV production
 WORKDIR /myapp
 ADD . /myapp
 RUN apt-get update -qq && apt-get install -y build-essential libmysqlclient-dev nodejs \
-  && bundle install && bundle exec rake assets:precompile
+  && bundle install  --without development test && bundle exec rake assets:precompile
 
 EXPOSE 3000
 
