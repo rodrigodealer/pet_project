@@ -11,5 +11,15 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe Admin::ProductsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'should be available' do
+    product = Product.new
+    product.available = true
+    expect(helper.available?(product)).to eq('Sim')
+  end
+
+  it 'should not be available' do
+    product = Product.new
+    product.available = false
+    expect(helper.available?(product)).to eq('Não')
+  end
 end

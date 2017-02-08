@@ -1,5 +1,5 @@
 class Product < ApplicationRecord
-  validates :name, :price, :available, presence: true
+  validates :name, :price, presence: true
   belongs_to :brand
 
   serialize :properties, Hash
