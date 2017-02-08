@@ -7,32 +7,28 @@ end
 
 
 gem 'rails', '~> 5.0.1'
-gem 'mysql2'
+gem 'mysql2', '0.4.5'
 gem 'redis', '~>3.2'
 gem 'puma', '~> 3.0'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.2.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'execjs'
-gem 'devise'
+gem 'execjs', '2.7.0'
+gem 'devise', '~> 4.2.0'
 gem 'therubyracer', :require => 'v8'
 
-gem 'rspec-core'
-gem 'rspec-rails'
-gem 'shoulda-matchers'
-gem 'factory_girl_rails'
-
-group :development do
-  gem 'fuubar'
+group :test, :development do
+  gem 'sqlite3', '1.3.13'
+  gem 'rspec-core', '~>3.5.4'
+  gem 'rspec-rails', '~>3.5.2'
+  gem 'shoulda-matchers', '3.1.1'
+  gem 'factory_girl_rails', '4.8.0'
+  gem 'fuubar', '2.2.0'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
-  gem 'spring'
+  gem 'spring', '2.0.0'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :test, :development do
-  gem 'sqlite3'
 end
