@@ -10,8 +10,11 @@ class Admin::ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-    product.save
-    redirect_to action: :index
+    if product.save
+      redirect_to action: :index
+    else
+      render :new, :alert => 'Error'
+    end
   end
 
   def destroy
