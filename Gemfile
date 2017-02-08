@@ -27,6 +27,7 @@ gem 'shoulda-matchers'
 gem 'factory_girl_rails'
 
 group :development do
+  gem 'fuubar'
   gem 'web-console', '>= 3.3.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring'
