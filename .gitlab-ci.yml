@@ -1,7 +1,7 @@
 stages:
   - test
   - build
-  - publish
+  - deploy
 
 test:2.3:
   only:
@@ -45,23 +45,6 @@ test:2.4_latest:
   artifacts:
     paths:
       - coverage/
-pages:
-  image: ruby:2.3
-  stage: publish
-  script:
-    - bundle install
-    - bundle exec rails db:create RAILS_ENV=ci
-    - bundle exec rails db:create RAILS_ENV=test
-    - bundle exec rails db:migrate RAILS_ENV=ci
-    - bundle exec rails db:migrate RAILS_ENV=test
-    - bundle exec rake spec
-    - mv coverage/ public/
-  artifacts:
-    paths:
-      - public
-    expire_in: 7 days
-  only:
-    - master
 
 docker_image:
   only:
