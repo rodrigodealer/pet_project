@@ -6,6 +6,7 @@ stages:
 test:2.3:
   only:
   - master
+  - production
   stage: test
   image: ruby:2.3
   services:
@@ -25,6 +26,7 @@ test:2.3:
 test:2.4_latest:
   only:
   - master
+  - production
   stage: test
   image: ruby:latest
   services:
