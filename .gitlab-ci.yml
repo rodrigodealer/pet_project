@@ -48,6 +48,12 @@ test:2.4_latest:
 pages:
   stage: publish
   script:
+    - bundle install
+    - bundle exec rails db:create RAILS_ENV=ci
+    - bundle exec rails db:create RAILS_ENV=test
+    - bundle exec rails db:migrate RAILS_ENV=ci
+    - bundle exec rails db:migrate RAILS_ENV=test
+    - bundle exec rake spec
     - mv coverage/ public/
   artifacts:
     paths:
