@@ -51,19 +51,5 @@ docker_image:
   script:
   - apk --update add --virtual build_deps build-base ruby-dev libc-dev linux-headers mariadb-dev libxml2-dev libxslt-dev
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
-  - docker build . -t registry.gitlab.com/rodrigodealer/pets:1.0.0
+  - docker build . -t registry.gitlab.com/rodrigodealer/pets:0.0.1
   - docker push registry.gitlab.com/rodrigodealer/pets
-
-#deploy:
-#  stage: deploy
-#  image: docker:git
-#  script:
-#  - apk add --update ansible
-#  - ansible --version
-#  - apk add --update sshpass
-#  - apk add --update openssh-client
-#  - ssh-keygen -f id_rsa -t rsa -N ''
-#  - sshpass -p f0e14876b2ae3102 ssh-copy-id -i id_rsa.pub root@207.154.198.244 -p 22 &>/dev/null &
-#  - cd ansible && ansible-playbook playbook.yml -l webserver -i hosts/hosts
-#  only:
-#  - master
