@@ -21,7 +21,7 @@ gem 'devise', '~> 4.2.0'
 gem 'therubyracer', :require => 'v8'
 
 group :development do
-  gem 'web-console', '>= 3.3.0'  
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test, :development do
@@ -33,5 +33,6 @@ group :test, :development do
   gem 'fuubar', '2.2.0'
   gem 'listen', '~> 3.0.5'
   gem 'spring', '2.0.0'
+  gem 'simplecov', :require => false
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
