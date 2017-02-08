@@ -24,3 +24,4 @@ es_data
 db_data
 vagrant/.vagrant
 pets
+coverage
