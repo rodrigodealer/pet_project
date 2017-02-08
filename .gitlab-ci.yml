@@ -1,7 +1,7 @@
 stages:
   - test
   - build
-  - deploy
+  - publish
 
 test:2.3:
   only:
@@ -46,9 +46,7 @@ test:2.4_latest:
     paths:
       - coverage/
 pages:
-  stage: test
-  dependencies:
-    - test:2.4_latest
+  stage: publish
   script:
     - mv coverage/ public/
   artifacts:
