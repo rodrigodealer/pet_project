@@ -68,7 +68,7 @@ RSpec.describe Admin::ProductsController, type: :controller do
       allow(product).to receive(:save) { false }
       allow(Product).to receive(:new) { product }
 
-      post :create, params: { product: { name: 'Test', brand_id: 1, price: 30, available: 30 } }
+      post :create, params: { product: { name: 'Test', brand_id: 1, price: 30, available: 30, files: [] } }
 
       expect(response).to_not redirect_to(:action => :index)
     end

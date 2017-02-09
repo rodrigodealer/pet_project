@@ -10,7 +10,7 @@ class Admin::ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
-    product.files = product_params[:files]
+    product.files = product_params[:files] if product_params[:files]
     if product.save
       redirect_to action: :index
     else
