@@ -56,7 +56,8 @@ RSpec.describe Admin::ProductsController, type: :controller do
     end
 
     it 'create' do
-      allow(Product).to receive(:find) { product }
+      allow(product).to receive(:save) { true }
+      allow(Product).to receive(:new) { product }
       brand = Brand.create(name: 'TestBrand')
 
       post :create, params: { product: { name: 'Test', brand_id: brand.id, price: 30, available: 30 } }
