@@ -2,8 +2,9 @@
 - name: Install Services
   hosts: all
   roles:
-    # - nginx
+    - nginx
     - angstwad.docker_ubuntu
+    - { role: elasticsearch, es_instance_name: "node1" }
     - mysql
-    # - redis
+    - redis
     - pets_rails_api
