@@ -7,6 +7,7 @@ test:
   <<: *default
 ci:
   <<: *default
+  host: 'http://elasticsearch:9200/'
 production:
   host: <%= ENV['ES_HOST'] %>
   transport_options:

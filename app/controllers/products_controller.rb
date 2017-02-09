@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.search(params[:q])
+    @products = Product.search(params[:q]).records
+
   end
 end
