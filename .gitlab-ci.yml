@@ -22,7 +22,7 @@ test:2.3:
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:migrate RAILS_ENV=ci
   - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rake spec
+  - bundle exec rspec
 
 test:2.4_latest:
   only:
@@ -43,7 +43,7 @@ test:2.4_latest:
   - bundle exec rails db:create RAILS_ENV=test
   - bundle exec rails db:migrate RAILS_ENV=ci
   - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rake spec
+  - bundle exec rspec
   artifacts:
     paths:
       - coverage/
