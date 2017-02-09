@@ -9,5 +9,5 @@ config = {
 #   env = 'development'
 # end
 # config = YAML.load_file("config/elasticsearch.yml")[ENV['RAILS_ENV']] if File.exists?("config/elasticsearch.yml")
-
+config = YAML.load_file(Rails.root.join('config/config.yml'))[Rails.env]
 Elasticsearch::Model.client = Elasticsearch::Client.new(config)
