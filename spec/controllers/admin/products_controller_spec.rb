@@ -57,9 +57,9 @@ RSpec.describe Admin::ProductsController, type: :controller do
 
     it 'create' do
       allow(Product).to receive(:find) { product }
-      allow(Brand).to receive(:find) { brand }
+      brand = Brand.create(name: 'TestBrand')
 
-      post :create, params: { product: { name: 'Test', brand_id: 1, price: 30, available: 30 } }
+      post :create, params: { product: { name: 'Test', brand_id: brand.id, price: 30, available: 30 } }
 
       expect(response).to redirect_to(:action => :index)
     end
