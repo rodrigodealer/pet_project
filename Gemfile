@@ -21,6 +21,8 @@ gem 'devise', '~> 4.2.0'
 gem 'therubyracer', :require => 'v8'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'mini_magick'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
