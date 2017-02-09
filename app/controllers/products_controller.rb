@@ -3,4 +3,8 @@ class ProductsController < ApplicationController
     products = Product.all
     render :json => {}, :include => { :brand => { :only => :name } }
   end
+
+  def search
+    @products = Product.search(params[:q])
+  end
 end

@@ -1,0 +1,7 @@
+<div class="container-fluid">
+<%= form_tag('/search') do %>
+  <%= label_tag(:q, 'Buscar:') %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Buscar", name: '') %>
+<% end %>
+</div>
