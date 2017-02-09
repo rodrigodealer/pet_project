@@ -5,6 +5,7 @@ development: &default
       timeout: !!integer 300
 test:
   <<: *default
+  host: 'http://elasticsearch:9200/'
 ci:
   <<: *default
   host: 'http://elasticsearch:9200/'
