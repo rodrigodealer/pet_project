@@ -19,12 +19,15 @@ gem 'jbuilder', '~> 2.5'
 gem 'execjs', '2.7.0'
 gem 'devise', '~> 4.2.0'
 gem 'therubyracer', :require => 'v8'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
+gem 'mini_magick'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
 end
 
 group :test, :development do
+  gem 'byebug'
   gem 'sqlite3', '1.3.13'
   gem 'rspec-core', '~>3.5.4'
   gem 'rspec-rails', '~>3.5.2'

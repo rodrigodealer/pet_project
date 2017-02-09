@@ -3,4 +3,6 @@ class Product < ApplicationRecord
   belongs_to :brand
 
   serialize :properties, Hash
+
+  mount_uploaders :files, ProductPicturesUploader
 end

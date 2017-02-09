@@ -10,6 +10,7 @@ class Admin::ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
+    product.files = product_params[:files]
     if product.save
       redirect_to action: :index
     else
@@ -49,6 +50,6 @@ class Admin::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :brand_id, :price, :available)
+    params.require(:product).permit(:name, :brand_id, :price, :available, {files: []})
   end
 end

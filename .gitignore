@@ -25,3 +25,4 @@ db_data
 vagrant/.vagrant
 pets
 coverage
+public/uploads
