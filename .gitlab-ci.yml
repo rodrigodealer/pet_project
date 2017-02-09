@@ -11,6 +11,7 @@ test:2.3:
   image: ruby:2.3
   services:
   - mysql:latest
+  - elasticsearch:latest
   variables:
     RAILS_ENV: ci
     MYSQL_DATABASE: pets
@@ -31,6 +32,7 @@ test:2.4_latest:
   image: ruby:latest
   services:
   - mysql:latest
+  - elasticsearch:latest
   variables:
     RAILS_ENV: ci
     MYSQL_DATABASE: pets
