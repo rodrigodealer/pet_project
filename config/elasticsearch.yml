@@ -5,7 +5,7 @@ development: &default
       timeout: !!integer 300
 test:
   <<: *default
-staging:
+ci:
   <<: *default
 production:
   host: <%= ENV['ES_HOST'] %>
