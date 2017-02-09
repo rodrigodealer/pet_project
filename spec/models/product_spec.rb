@@ -1,9 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  # it { should validate_presence_of(:name) }
-  # it { should validate_presence_of(:price) }
-  # it { should belong_to(:brand) }
+  subject { described_class.new }
+
+  it "is valid with valid attributes" do
+    subject.name = "Anything"
+    subject.price = 20
+    expect(subject).to be_valid
+  end
+
+  it "is invalid with valid attributes" do
+    expect(subject).to be_invalid
+  end
 
   let(:product) { Product.new(name: 'Frontline', price: 20.0, available: true, properties: {'Color' => 'Black'}) }
 
