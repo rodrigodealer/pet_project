@@ -5,7 +5,10 @@ class ProductsController < ApplicationController
   end
 
   def search
-    @products = Product.search(params[:q]).records
-
+    begin
+      @products = Product.search(params.require(:q)).records
+    rescue
+      redirect_to root_path
+    end
   end
 end

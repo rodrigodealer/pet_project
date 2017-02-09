@@ -1,5 +1,5 @@
 development: &default
-  host: <%= ENV['GITLAB_CI'] ? 'http://elasticsearch:9200/' : 'http://localhost:9200/'  %>'
+  host: <%= ENV['GITLAB_CI'] ? 'http://elasticsearch:9200' : 'http://localhost:9200'  %>
   transport_options:
     request:
       timeout: !!integer 300

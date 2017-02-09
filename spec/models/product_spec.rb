@@ -3,13 +3,13 @@ require 'rails_helper'
 RSpec.describe Product, type: :model do
   subject { described_class.new }
 
-  it "is valid with valid attributes" do
-    subject.name = "Anything"
+  it 'is valid with valid attributes' do
+    subject.name = 'Anything'
     subject.price = 20
     expect(subject).to be_valid
   end
 
-  it "is invalid with valid attributes" do
+  it 'is invalid with valid attributes' do
     expect(subject).to be_invalid
   end
 
