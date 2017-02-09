@@ -1,16 +1,28 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<div class="container-fluid">
-  <% @products.each do |product| %>
-  <div class="row">
-    <div class="col-xs-2"><%= link_to product.name, edit_admin_product_path(product) %></div>
-    <div class="col-xs-2"><%= product.brand.name %></div>
-    <div class="col-xs-2"><%= product.price %></div>
-    <div class="col-xs-2">Disponível? <%= available?(product) %></div>
-    <div class="col-xs-2"><%= link_to 'Items', admin_product_properties_edit_path(product) %></div>
-    <div class="col-xs-2"><%=link_to "Delete",admin_product_path(product.id), 'data-method' => :delete, :class => "delete", :confirm => "Are you sure ?"%> </div>
-  </div>
-  <% end %>
+<div class="container-fluid table-responsive">
+  <table class="table table-hover">
+    <tr>
+      <th>Nome</th>
+      <th>Marca</th>
+      <th>Preço</th>
+      <th>Disponível?</th>
+      <th>Quantidade de fotos</th>
+      <th>Opções</th>
+    </tr>
+    <tr>
+      <% @products.each do |product| %>
+      <tr class="<%= availability_class(product) %>">
+        <td><%= link_to product.name, edit_admin_product_path(product) %></td>
+        <td><%= product.brand.name %></td>
+        <td><%= product.price %></td>
+        <td>Disponível? <%= available?(product) %></td>
+        <td><%= product.files.size %> fotos</td>
+        <td><%= link_to 'Items', admin_product_properties_edit_path(product) %> | <%=link_to "Delete",admin_product_path(product.id), 'data-method' => :delete, :class => "delete", :confirm => "Are you sure ?"%> </td>
+      </tr>
+      <% end %>
+    </tr>
+  </table>
 </div>
 
 <%= link_to 'Novo', new_admin_product_path %>
