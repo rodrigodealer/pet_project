@@ -16,16 +16,26 @@ Product.create(brand: brand,
   name: 'Pente',
   price: 30.0,
   available: true,
-  properties: { size.name => 'G', color.name => 'Preto', type.name => 'Gato' } )
-
+  properties: [
+    size.name => [['G', 20], ['P', 30], ['M', 10]],
+    color.name => [['Preto', 10]],
+    type.name => [['Gato', 20]]
+  ])
 Product.create(brand: brand,
   name: 'Pente',
   price: 30.0,
   available: true,
-  properties: { size.name => 'G', color.name => 'Vermelho', type.name => 'Cachorro' } )
-
+  properties: [
+    size.name => [['G', 20], ['P', 30], ['M', 10]],
+    color.name => [['Preto', 10]],
+    type.name => [['Gato', 20]]
+  ])
 Product.create(brand: brand,
   name: 'Lixa',
   price: 10.0,
   available: true,
-  properties: { size.name => 'P', color.name => 'Laranja', type.name => 'Gato' } )
+  properties: [
+    size.name => [['G', 20], ['P', 30], ['M', 10]],
+    color.name => [['Preto', 10]],
+    type.name => [['Gato', 20]]
+  ])

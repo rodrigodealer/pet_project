@@ -11,4 +11,12 @@ class ProductsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def show
+    begin
+      @product = Product.find(params.require(:id))
+    rescue
+      redirect_to root_path
+    end
+  end
 end

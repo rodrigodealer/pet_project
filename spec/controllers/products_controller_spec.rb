@@ -23,6 +23,32 @@ RSpec.describe ProductsController, type: :controller do
     expect(response).to be_redirect
   end
 
+  it 'show product page' do
+    allow(Product).to receive(:find) { Product.new }
+
+    get :show, params: { id: 10 }
+
+    expect(response).to be_ok
+  end
+
+  it 'redirect when empty id' do
+    get :show, params: { id: '' }
+
+    expect(response).to be_redirect
+  end
+
+  it 'redirect when null id' do
+    get :show, params: { id: nil }
+
+    expect(response).to be_redirect
+  end
+
+  it 'redirect when no id' do
+    get :show
+
+    expect(response).to be_redirect
+  end
+
   class RecordStub
     def records
       []

@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/p(/:id)', to: 'products#show'
+
   get '/search', to: 'products#search'
 
   get '/healthcheck', to: 'healthcheck#index'
