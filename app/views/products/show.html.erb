@@ -1,3 +1,11 @@
 <%= @product.name %>
 
-<%= @product.properties.sizes %>
+<% @product.properties.each do |ps| %>
+  <% ps.each do |p| %>
+    <%= p.first %>
+
+    <% p.last.each do |i| %>
+        Name: <%= i.first %> Price: <%= i.last %>
+    <% end %>
+  <% end %>
+<% end %>

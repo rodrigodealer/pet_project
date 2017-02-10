@@ -19,4 +19,26 @@ class Product < ApplicationRecord
   serialize :properties, GridSerializer
 
   mount_uploaders :files, ProductPicturesUploader
+
+  def price_for(property, item)
+    result = properties.map do |ps|
+      ps[property].map { |p| p.last if p.first == item }
+    end
+    result.flatten.fetch(0)
+  end
+
+  def property_titles
+    properties.map { |ps| ps.keys }.flatten
+  end
+
+  def items_for(property)
+    properties.map { |ps| ps[property] }.fetch(0)
+  end
+
+  def final_price(size:, color:, type:)
+    [price_for(size.first, size.last),
+      price_for(color.first, color.last),
+      price_for(type.first, type.last)
+    ].max
+  end
 end
