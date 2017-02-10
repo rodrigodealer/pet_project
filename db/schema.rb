@@ -12,34 +12,35 @@
 
 ActiveRecord::Schema.define(version: 20170209091335) do
 
-  create_table "brands", force: :cascade do |t|
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_options", force: :cascade do |t|
+  create_table "product_options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_tags", force: :cascade do |t|
+  create_table "product_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "properties"
-    t.float    "price"
+    t.text     "properties", limit: 65535
+    t.float    "price",      limit: 24
     t.boolean  "available"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "brand_id"
-    t.         "files"
-    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.json     "files"
+    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
   end
 
+  add_foreign_key "products", "brands"
 end

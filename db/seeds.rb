@@ -20,7 +20,9 @@ Product.create(brand: brand,
     size.name => [['G', 20], ['P', 30], ['M', 10]],
     color.name => [['Preto', 10]],
     type.name => [['Gato', 20]]
-  ])
+  ]
+)
+
 Product.create(brand: brand,
   name: 'Pente',
   price: 30.0,
