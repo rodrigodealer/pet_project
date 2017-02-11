@@ -4,32 +4,32 @@ RSpec.describe Admin::ProductsController, type: :controller do
 
   describe 'renders' do
     it 'renders index' do
-      subject { get :index }
+      get :index
 
-      expect(response.status).to eq(200)
+      expect(response).to be_ok
     end
 
     it 'renders new' do
-      subject { get :new }
+      get :new
 
-      expect(response.status).to eq(200)
+      expect(response).to be_ok
     end
 
     it 'renders edit' do
       allow(Product).to receive(:find) { Product.new }
       allow(Brand).to receive(:all) { [] }
 
-      subject { get :edit, params: { id: 1 } }
+      get :edit, params: { id: 1 }
 
-      expect(response.status).to eq(200)
+      expect(response).to be_ok
     end
 
     it 'renders properties edit' do
       allow(Product).to receive(:find) { Product.new }
 
-      subject { get :properties_edit, params: { product_id: 1 } }
+      get :properties_edit, params: { product_id: 1 }
 
-      expect(response.status).to eq(200)
+      expect(response).to be_ok
     end
   end
 

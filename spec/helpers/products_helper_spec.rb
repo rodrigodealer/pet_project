@@ -18,4 +18,8 @@ RSpec.describe ProductsHelper, type: :helper do
     expect(helper.label_for_properties(items)[1]).to eq(['P - R$ 30', 'P'])
     expect(helper.label_for_properties(items).last).to eq(['M - R$ 10', 'M'])
   end
+
+  it 'qty_items' do
+    expect(helper.qty_items).to eq([[1,1], [2,2],[3,3],[4,4],[5,5],[6,6],[7,7], [8,8], [9,9], [10,10]])
+  end
 end

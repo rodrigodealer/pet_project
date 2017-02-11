@@ -1,16 +1,16 @@
 <%= @product.name %>
 
 
-<%= form_tag('/cart', method: 'post') do %>
-<%= hidden_field_tag(:product_id, @product.id) %>
+<%= form_for('cart', :url => '/cart', method: 'post') do |f| %>
+<%= f.hidden_field(:product_id, :value => @product.id) %>
 
 <% @product.property_titles.each do |p| %>
   <div>
     <%= p %>
-    <%= select(:property, p, label_for_properties(@product.items_for(p))) %>
+    <%= f.select("property[#{p}]", label_for_properties(@product.items_for(p))) %>
   </div>
 <% end %>
 
-<%= select_tag(:qty, options_for_select(qty_items)) %>
+<%= f.select :qty, options_for_select(qty_items) %>
 <%= submit_tag('Comprar', name: '') %>
 <% end %>
