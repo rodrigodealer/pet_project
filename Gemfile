@@ -30,6 +30,7 @@ end
 
 group :test, :development do
   gem 'byebug'
+  gem 'mock_redis'
   gem 'sqlite3', '1.3.13'
   gem 'rspec-core', '~>3.5.4'
   gem 'rspec-rails', '~>3.5.2'
