@@ -1,11 +1,16 @@
 <%= @product.name %>
 
-<% @product.properties.each do |ps| %>
-  <% ps.each do |p| %>
-    <%= p.first %>
 
-    <% p.last.each do |i| %>
-        Name: <%= i.first %> Price: <%= i.last %>
-    <% end %>
-  <% end %>
+<%= form_tag('/cart', method: 'post') do %>
+<%= hidden_field_tag(:product_id, @product.id) %>
+
+<% @product.property_titles.each do |p| %>
+  <div>
+    <%= p %>
+    <%= select(:property, p, label_for_properties(@product.items_for(p))) %>
+  </div>
+<% end %>
+
+<%= select_tag(:qty, options_for_select(qty_items)) %>
+<%= submit_tag('Comprar', name: '') %>
 <% end %>

@@ -11,6 +11,10 @@ Rails.application.routes.draw do
     end
   end
 
+  post '/cart', to: 'cart#create'
+
+  get '/cart', to: 'cart#index'
+
   get '/p(/:id)', to: 'products#show'
 
   get '/search', to: 'products#search'

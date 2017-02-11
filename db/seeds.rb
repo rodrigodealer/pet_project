@@ -10,34 +10,30 @@ brand = Brand.create(name: 'Chalesco')
 
 size = ProductOption.create(name: 'Tamanho')
 color = ProductOption.create(name: 'Cor')
-type = ProductOption.create(name: 'Animal')
+types = ProductOption.create(name: 'Tipo')
 
 Product.create(brand: brand,
   name: 'Pente',
   price: 30.0,
   available: true,
   properties: [
-    size.name => [['G', 20], ['P', 30], ['M', 10]],
-    color.name => [['Preto', 10]],
-    type.name => [['Gato', 20]]
-  ]
-)
-
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
 Product.create(brand: brand,
   name: 'Pente',
   price: 30.0,
   available: true,
   properties: [
-    size.name => [['G', 20], ['P', 30], ['M', 10]],
-    color.name => [['Preto', 10]],
-    type.name => [['Gato', 20]]
-  ])
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
 Product.create(brand: brand,
   name: 'Lixa',
   price: 10.0,
   available: true,
   properties: [
-    size.name => [['G', 20], ['P', 30], ['M', 10]],
-    color.name => [['Preto', 10]],
-    type.name => [['Gato', 20]]
-  ])
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
