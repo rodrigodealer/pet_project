@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'mock_redis'
 
 RSpec.describe Cart, type: :model do
   subject { described_class.new(user_id: 1) }
