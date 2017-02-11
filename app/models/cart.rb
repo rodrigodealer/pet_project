@@ -1,5 +1,7 @@
 
 class Cart
+  extend RedisSupport
+
   attr_accessor :user_id, :items
 
   def initialize(user_id:)
@@ -17,7 +19,7 @@ class Cart
   end
 
   def self.get_cart(user_id)
-    items = RedisSupport.redis.get(user_id)
+    items = redis.get(user_id)
     if items
       Cart.new(user_id: user_id).with_json_items(items)
     else
@@ -26,6 +28,6 @@ class Cart
   end
 
   def save
-    RedisSupport.redis.set(@user_id, self.items.to_json)
+    Cart.redis.set(@user_id, self.items.to_json)
   end
 end
