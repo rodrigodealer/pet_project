@@ -27,15 +27,15 @@ RSpec.describe Cart, type: :model do
   it 'gets the unknown cart' do
     allow(Redis).to receive(:new) { redis }
 
-    expect(Cart.get_cart(1).user_id).to eq(1)
+    expect(Cart.get(1).user_id).to eq(1)
   end
 
   it 'gets the known cart' do
     allow(redis).to receive(:get).with(1) { "[{\"product_id\":\"1\",\"qty\":\"1\",\"property\":{\"Tamanho\":\"G\",\"Cor\":\"Preto\",\"Tipo\":\"Gato\"}}]" }
     allow(Redis).to receive(:new) { redis }
 
-    expect(Cart.get_cart(1).user_id).to eq(1)
-    expect(Cart.get_cart(1).items).to_not be_empty
+    expect(Cart.get(1).user_id).to eq(1)
+    expect(Cart.get(1).items).to_not be_empty
   end
 
   it 'saves' do

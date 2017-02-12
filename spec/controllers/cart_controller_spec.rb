@@ -34,8 +34,8 @@ RSpec.describe CartController, type: :controller do
   it 'creates a cart' do
     allow(cart).to receive(:with_items) { cart }
     allow(cart).to receive(:save) { true }
-    allow(Cart).to receive(:get_cart).with(1) { cart }
-    
+    allow(Cart).to receive(:get) { cart }
+
     post :create, params: { :cart => { :product_id => 1, :qty => 1, :property => {'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Gato'} }}
 
     expect(response).to be_ok

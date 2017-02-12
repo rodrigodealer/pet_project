@@ -18,7 +18,7 @@ class Cart
     self
   end
 
-  def self.get_cart(user_id)
+  def self.get(user_id)
     items = redis.get(user_id)
     if items
       Cart.new(user_id: user_id).with_json_items(items)
