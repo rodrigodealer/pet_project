@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
@@ -18,11 +18,12 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'execjs', '2.7.0'
 gem 'devise', '~> 4.2.0'
+gem 'omniauth-facebook', '1.4.0'
 gem 'therubyracer', :require => 'v8'
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
-gem 'mini_magick'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+gem 'mini_magick', '4.6.0'
+gem 'elasticsearch-model', '0.1.9'
+gem 'elasticsearch-rails', '0.1.9'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
