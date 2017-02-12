@@ -1,6 +1,8 @@
 class CartController < ApplicationController
+  include Cookies
 
   def index
+    @cart = cart_cookie(id: 'cart', value: SecureRandom.hex)
   end
 
   def create
@@ -21,18 +23,5 @@ class CartController < ApplicationController
     params.require(:cart).require(:qty)
     params.require(:cart).require(:property)
     params.require(:cart).permit(:product_id, :qty, :property => ['Tamanho', 'Cor', 'Tipo'])
-  end
-
-  def cookie_exists?(id: )
-    !cookies[id].nil?
-  end
-
-  def cart_cookie(id:, value:)
-    unless cookie_exists?(id: 'cart')
-      cookies[id] = { value: value, expires: 20.days.from_now, httponly: true }
-      value
-    else
-      cookies[]
-    end
   end
 end
