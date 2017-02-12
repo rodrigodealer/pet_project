@@ -2,14 +2,15 @@ class CartController < ApplicationController
   include Cookies
 
   def index
-    @cart = cart_cookie(id: 'cart', value: SecureRandom.hex)
+    id = cart_cookie(id: 'cart', value: SecureRandom.hex)
+    @cart = Cart.get(id)
   end
 
   def create
     begin
       @cart = cart_params
       id = cart_cookie(id: 'cart', value: SecureRandom.hex)
-      mycart = Cart.get(id).with_items(cart_params)
+      mycart =
       mycart.save
       render action: :index
     rescue

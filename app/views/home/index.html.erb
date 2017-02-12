@@ -5,3 +5,8 @@
   <%= submit_tag("Buscar", name: '') %>
 <% end %>
 </div>
+
+
+<% if current_user %>
+Logado como: <%= current_user.name %> - <%= current_user.email %>
+<% end %>

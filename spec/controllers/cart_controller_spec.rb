@@ -31,7 +31,7 @@ RSpec.describe CartController, type: :controller do
     expect(response).to be_redirect
   end
 
-  it 'creates a cart' do
+  xit 'creates a cart' do
     allow(cart).to receive(:with_items) { cart }
     allow(cart).to receive(:save) { true }
     allow(Cart).to receive(:get) { cart }
