@@ -18,6 +18,15 @@ class Admin::ProductsController < ApplicationController
     end
   end
 
+  def update
+    @product = Product.find(params[:id])
+    if @product.update_attributes(product_params)
+      redirect_to action: :index
+    else
+      render :edit, :alert => 'Error'
+    end
+  end
+
   def destroy
     product = Product.find(params[:id])
     product.destroy
@@ -50,6 +59,6 @@ class Admin::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :brand_id, :price, :available, {files: []})
+    params.require(:product).permit(:name, :brand_id, :price, :available, :height, :width, :weight, :description, :depth, {files: []})
   end
 end

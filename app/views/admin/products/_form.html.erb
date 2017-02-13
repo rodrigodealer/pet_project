@@ -23,6 +23,36 @@
   </div>
 </div>
 <div class="form-group">
+  <label for="brand" class="col-sm-2 control-label">Descrição</label>
+  <div class="col-sm-10">
+    <%= text_area(:product, :description, :rows => 10, :cols => 80) %>
+  </div>
+</div>
+<div class="form-group">
+  <label for="brand" class="col-sm-2 control-label">Altura (cm)</label>
+  <div class="col-sm-10">
+    <%= text_field(:product, :height, :size => 3, :maxlength => 3) %>
+  </div>
+</div>
+<div class="form-group">
+  <label for="brand" class="col-sm-2 control-label">Largura (cm)</label>
+  <div class="col-sm-10">
+    <%= text_field(:product, :width, :size => 3, :maxlength => 3) %>
+  </div>
+</div>
+<div class="form-group">
+  <label for="brand" class="col-sm-2 control-label">Profundidade (cm)</label>
+  <div class="col-sm-10">
+    <%= text_field(:product, :depth, :size => 3, :maxlength => 3) %>
+  </div>
+</div>
+<div class="form-group">
+  <label for="brand" class="col-sm-2 control-label">Peso (g)</label>
+  <div class="col-sm-10">
+    <%= text_field(:product, :weight, :size => 5, :maxlength => 5) %>
+  </div>
+</div>
+<div class="form-group">
   <label for="brand" class="col-sm-2 control-label">Fotos</label>
   <div class="col-sm-10">
     <%= file_field :product, :files, multiple: true %>

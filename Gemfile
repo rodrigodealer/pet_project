@@ -26,6 +26,9 @@ gem 'mini_magick', '4.6.0'
 gem 'elasticsearch-model', '0.1.9'
 gem 'elasticsearch-rails', '0.1.9'
 gem 'rest-client', '2.0.0'
+gem 'wysiwyg-rails', '2.4.2'
+gem 'font-awesome-rails', '4.7.0.1'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
