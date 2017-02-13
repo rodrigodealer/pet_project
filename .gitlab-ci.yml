@@ -1,7 +1,6 @@
 stages:
   - test
   - build
-  - deploy_staging
 
 test:2.3:
   only:
@@ -60,11 +59,3 @@ docker_image:
   - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN registry.gitlab.com
   - docker build . -t registry.gitlab.com/rodrigodealer/pets:0.0.1
   - docker push registry.gitlab.com/rodrigodealer/pets
-
-staging_deploy:
-  stage: deploy_staging
-  image: docker:git
-  services:
-    - docker:dind
-  script:
-  - cd ansible && docker run -v $(pwd)/keys/id_rsa:/root/.ssh/id_rsa  -v $(pwd)/keys/id_rsa.pub:/root/.ssh/id_rsa.pub -v $(pwd):/ansible/playbooks  philm/ansible_playbook playbook.yml -i hosts
