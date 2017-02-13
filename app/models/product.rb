@@ -16,6 +16,8 @@ class Product < ApplicationRecord
   validates :name, :price, presence: true
   belongs_to :brand
 
+  serialize :tags, GridSerializer
+
   serialize :properties, GridSerializer
 
   mount_uploaders :files, ProductPicturesUploader

@@ -6,6 +6,7 @@ class Admin::ProductsController < ApplicationController
   def new
     @product = Product.new
     @brands = Brand.all
+    @product_tags = ProductTag.all
   end
 
   def create
@@ -36,6 +37,7 @@ class Admin::ProductsController < ApplicationController
   def edit
     @product = Product.find(params[:id])
     @brands = Brand.all
+    @product_tags = ProductTag.all
   end
 
   def properties_edit

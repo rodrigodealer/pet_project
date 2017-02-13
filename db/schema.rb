@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213205036) do
+ActiveRecord::Schema.define(version: 20170213212923) do
 
-  create_table "addresses", force: :cascade do |t|
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "label"
     t.string   "street"
     t.string   "number"
@@ -23,45 +23,46 @@ ActiveRecord::Schema.define(version: 20170213205036) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.integer  "user_id"
-    t.index ["user_id"], name: "index_addresses_on_user_id"
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
-  create_table "brands", force: :cascade do |t|
+  create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_options", force: :cascade do |t|
+  create_table "product_options", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_tags", force: :cascade do |t|
+  create_table "product_tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "products", force: :cascade do |t|
+  create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "properties"
-    t.float    "price"
+    t.text     "properties",  limit: 65535
+    t.float    "price",       limit: 24
     t.boolean  "available"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.integer  "brand_id"
-    t.         "files"
-    t.text     "description"
-    t.float    "weight"
-    t.float    "height"
-    t.float    "width"
-    t.float    "depth"
-    t.index ["brand_id"], name: "index_products_on_brand_id"
+    t.json     "files"
+    t.text     "description", limit: 65535
+    t.float    "weight",      limit: 53
+    t.float    "height",      limit: 53
+    t.float    "width",       limit: 53
+    t.float    "depth",       limit: 53
+    t.text     "tags",        limit: 65535
+    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "",  null: false
     t.string   "encrypted_password",     default: "",  null: false
     t.string   "reset_password_token"
@@ -78,8 +79,10 @@ ActiveRecord::Schema.define(version: 20170213205036) do
     t.string   "uid"
     t.string   "kind",                   default: "U"
     t.string   "name"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "users"
+  add_foreign_key "products", "brands"
 end
