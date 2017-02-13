@@ -19,7 +19,7 @@
 
 - name: Pull image
   become: yes
-  command: docker pull registry.gitlab.com/rodrigodealer/pets:1.0.0
+  command: docker pull registry.gitlab.com/rodrigodealer/pets:0.0.1
 
 - name: Copy upstart script for pets
   become: yes

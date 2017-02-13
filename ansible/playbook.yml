@@ -1,6 +1,6 @@
 ---
 - name: Install Services
-  hosts: all
+  hosts: webserver
   roles:
     - nginx
     - angstwad.docker_ubuntu
