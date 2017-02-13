@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212175411) do
+ActiveRecord::Schema.define(version: 20170213155515) do
 
   create_table "addresses", force: :cascade do |t|
     t.string   "label"
@@ -49,10 +49,15 @@ ActiveRecord::Schema.define(version: 20170212175411) do
     t.text     "properties"
     t.float    "price"
     t.boolean  "available"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
     t.integer  "brand_id"
     t.         "files"
+    t.text     "description"
+    t.float    "weight"
+    t.float    "height"
+    t.float    "width"
+    t.float    "depth"
     t.index ["brand_id"], name: "index_products_on_brand_id"
   end
 
