@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/products',    to: 'products#index'
 
   namespace :admin do
+    resources :product_tags
     resources :products do
       get :properties_edit
       get :properties_remove

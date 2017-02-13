@@ -40,6 +40,7 @@ group :test, :development do
   gem 'sqlite3', '1.3.13'
   gem 'rspec-core', '~>3.5.4'
   gem 'rspec-rails', '~>3.5.2'
+  gem 'rails-controller-testing'
   gem 'guard-rspec', require: false
   gem 'factory_girl_rails', '4.8.0'
   gem 'fuubar', '2.2.0'
