@@ -16,6 +16,24 @@ RSpec.describe ProductsController, type: :controller do
     expect(response).to be_ok
   end
 
+  it 'redirect when post to search' do
+    post :search_from_post, params: { q: 'hi' }
+
+    expect(response).to be_redirect
+  end
+
+  it 'bad request when post to empty to serch' do
+    post :search_from_post, params: { q: '' }
+
+    expect(response).to be_bad_request
+  end
+
+  it 'bad request when post to nil to serch' do
+    post :search_from_post
+
+    expect(response).to be_bad_request
+  end
+
   it 'redirect null when search' do
     allow(Product).to receive(:search) { RecordStub.new }
 

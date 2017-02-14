@@ -5,7 +5,11 @@ class ProductsController < ApplicationController
   end
 
   def search_from_post
-    redirect_to :action => 'search', :name => params[:q]
+    begin
+      redirect_to :action => 'search', :name => params.require([:q])
+    rescue ActionController::ParameterMissing
+      head :bad_request
+    end
   end
 
   def search
