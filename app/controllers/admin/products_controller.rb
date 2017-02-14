@@ -1,4 +1,6 @@
 class Admin::ProductsController < ApplicationController
+  before_filter :tags_strip_null, :only => [:create, :update]
+
   def index
     @products = Product.all
   end
@@ -11,6 +13,7 @@ class Admin::ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
+
     product.files = product_params[:files] if product_params[:files]
     if product.save
       redirect_to action: :index
@@ -60,7 +63,11 @@ class Admin::ProductsController < ApplicationController
   end
 
   private
+  def tags_strip_null
+    params[:product][:tags].delete("0") if params[:product][:tags] && params[:product][:tags].include?("0")
+  end
+
   def product_params
-    params.require(:product).permit(:name, :brand_id, :price, :available, :height, :width, :weight, :description, :depth, {files: []})
+    params.require(:product).permit(:name, :brand_id, :price, :available, :height, :width, :weight, :description, :depth, {files: []}, {tags: []})
   end
 end
