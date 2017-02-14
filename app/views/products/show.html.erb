@@ -1,16 +1,62 @@
-<%= @product.name %>
+<div class="row">
+  <div class="col-md-12"><h3><%= @product.name %></h3></div>
+</div>
 
-
-<%= form_for('cart', :url => '/cart', method: 'post') do |f| %>
-<%= f.hidden_field(:product_id, :value => @product.id) %>
-
-<% @product.property_titles.each do |p| %>
-  <div>
-    <%= p %>
-    <%= f.select("property[#{p}]", label_for_properties(@product.items_for(p))) %>
+<div class="row">
+  <div class="col-md-12">
+    <% label_shuffle(@product.tags).each do |tag| %>
+    <span class="label label-<%= tag[:label]%>"><%= tag[:name] %></span>
+    <% end %>
   </div>
-<% end %>
+</div>
 
-<%= f.select :qty, options_for_select(qty_items) %>
-<%= submit_tag('Comprar', name: '') %>
-<% end %>
+<div class="row">
+  <div class="col-md-8"><%= raw(@product.description) %></div>
+  <div class="col-md-4">
+    <%= form_for('cart', :url => '/cart', method: 'post') do |f| %>
+      <%= f.hidden_field(:product_id, :value => @product.id) %>
+
+      <% @product.property_titles.each do |p| %>
+        <div>
+          <%= p %>
+          <%= f.select("property[#{p}]", label_for_properties(@product.items_for(p))) %>
+        </div>
+      <% end %>
+
+      <%= f.select :qty, options_for_select(qty_items) %>
+      <%= submit_tag('Comprar', name: '') %>
+    <% end %>
+  </div>
+</div>
+
+<div class="details">
+  <div class="row">
+    <div class="col-md-1">Marca</div>
+    <div class="col-md-2"><%= @product.brand.name %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">Tamanhos</div>
+    <div class="col-md-2"><%= properties_comma_separated(@product.properties,'Tamanho') %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">Tipos</div>
+    <div class="col-md-2"><%= properties_comma_separated(@product.properties,'Tipo') %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">Cores</div>
+    <div class="col-md-2"><%= properties_comma_separated(@product.properties,'Cor') %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">Dimensões (LxAxP)</div>
+    <div class="col-md-2"><%= @product.width %>cm x <%= @product.height %>cm x <%= @product.depth %>cm</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-1">Peso</div>
+    <div class="col-md-2"><%= @product.weight %>g</div>
+  </div>
+</div>
