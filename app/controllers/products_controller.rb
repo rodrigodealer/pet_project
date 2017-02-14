@@ -4,9 +4,13 @@ class ProductsController < ApplicationController
     render :json => {}, :include => { :brand => { :only => :name } }
   end
 
+  def search_from_post
+    redirect_to :action => 'search', :name => params[:q]
+  end
+
   def search
     begin
-      @products = Product.search(params.require(:q)).records
+      @products = Product.search(params.require([:name])).records
     rescue
       redirect_to root_path
     end

@@ -23,5 +23,8 @@ Rails.application.routes.draw do
 
   get '/search', to: 'products#search'
 
+  post '/search', to: 'products#search_from_post'
+  get '/search/:name', to: 'products#search'
+
   get '/healthcheck', to: 'healthcheck#index'
 end

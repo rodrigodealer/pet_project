@@ -11,7 +11,7 @@ RSpec.describe ProductsController, type: :controller do
 
     allow(Product).to receive(:search) { RecordStub.new }
 
-    get :search, params: { q: 'hi' }
+    get :search, params: { name: 'hi' }
 
     expect(response).to be_ok
   end
@@ -19,7 +19,7 @@ RSpec.describe ProductsController, type: :controller do
   it 'redirect null when search' do
     allow(Product).to receive(:search) { RecordStub.new }
 
-    get :search, params: { q: '' }
+    get :search, params: { name: '' }
 
     expect(response).to be_redirect
   end
