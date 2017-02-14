@@ -28,7 +28,7 @@ gem 'elasticsearch-rails', '0.1.9'
 gem 'rest-client', '2.0.0'
 gem 'wysiwyg-rails', '2.4.2'
 gem 'font-awesome-rails', '4.7.0.1'
-
+gem 'rails-controller-testing'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -40,7 +40,6 @@ group :test, :development do
   gem 'sqlite3', '1.3.13'
   gem 'rspec-core', '~>3.5.4'
   gem 'rspec-rails', '~>3.5.2'
-  gem 'rails-controller-testing'
   gem 'guard-rspec', require: false
   gem 'factory_girl_rails', '4.8.0'
   gem 'fuubar', '2.2.0'
