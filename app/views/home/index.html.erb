@@ -1,10 +1,4 @@
-<div class="container-fluid">
-<%= form_tag('/search', method: :post, :enforce_utf8 => false) do %>
-  <%= label_tag(:q, 'Buscar:') %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Buscar", name: '') %>
-<% end %>
-</div>
+<%= render :partial => "common/search" %>
 
 
 <% if current_user %>

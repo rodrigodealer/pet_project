@@ -10,14 +10,18 @@ module ProductsHelper
 
   def label_shuffle(tags)
     options = ['default', 'primary', 'success', 'info', 'warning', 'danger']
-    tags.map do |tag|
-      item = options.sample
-      options.delete(item)
-      {name: tag, label: item}
+    if tags
+      tags.map do |tag|
+        item = options.sample
+        options.delete(item)
+        {name: tag, label: item}
+      end
+    else
+      []
     end
   end
 
   def properties_comma_separated(properties, property)
-    properties.first[property].map{|t| t.first }.join(', ')
+    properties.first[property].map{ |t| t.first }.join(', ') if properties.first[property]
   end
 end

@@ -1,5 +1,5 @@
-<% @products.each do |p| %>
-
-<%= p.name %> <%= p.brand.name %>
-
+<%= render :partial => "common/search" %>
+  
+<% @products.each do |product| %>
+  <%= render :partial => "common/product_box", locals:{product: product} %>
 <% end %>

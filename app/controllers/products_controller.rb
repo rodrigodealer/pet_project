@@ -14,8 +14,8 @@ class ProductsController < ApplicationController
 
   def search
     begin
-      @products = Product.search(params.require([:name])).records
-    rescue
+      @products = Product.search(params.require([:name]), size: 20).records
+    rescue ActionController::ParameterMissing
       redirect_to root_path
     end
   end

@@ -61,3 +61,404 @@ Product.create(brand: brand,
     size.name => [['G', '20'], ['P', '30'], ['M', '10']],
     color.name => [['Preto', '10']]
 ])
+
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']],
+    types.name => [['Gato', '40']]
+])
+Product.create(brand: brand,
+  name: 'Pente',
+  price: 30.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])
+Product.create(brand: brand,
+  name: 'Lixa',
+  price: 10.0,
+  available: true,
+  description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
+  height: 23,
+  width: 30,
+  weight: 150,
+  depth: 5,
+  properties: [
+    size.name => [['G', '20'], ['P', '30'], ['M', '10']],
+    color.name => [['Preto', '10']]
+])

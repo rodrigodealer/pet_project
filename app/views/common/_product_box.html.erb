@@ -1,0 +1,14 @@
+<div class="product-item">
+  <div class="col-md-3">
+    <span><h4><%= product.name %> <%= product.brand.name %></h4></span>
+    <span><h5><%= product.price %></h5></span>
+    <span><strong>Tamanhos</strong>: <%= properties_comma_separated(product.properties,'Tamanho') %></span>
+    <span><strong>Cores</strong>: <%= properties_comma_separated(product.properties,'Cor') %></span>
+
+    <div>
+      <% label_shuffle(product.tags).each do |tag| %>
+        <span class="label label-<%= tag[:label]%>"><%= tag[:name] %></span>
+      <% end %>
+    </div>
+  </div>
+</div>
