@@ -5,9 +5,8 @@ ENV RAILS_ENV production
 
 WORKDIR /myapp
 ADD . /myapp
-RUN apt-get update -qq && apt-get install -y build-essential libmysqlclient-dev nodejs imagemagick git; \
-  bundle install  --without development test && bundle exec rake assets:precompile; \
-  apt-get clean
+RUN apt-get update -qq && apt-get install -y build-essential libmysqlclient-dev nodejs imagemagick git \
+  && bundle install  --without development test && bundle exec rake assets:precompile
 
 EXPOSE 3000
 
