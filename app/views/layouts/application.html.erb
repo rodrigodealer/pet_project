@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Pets</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Pets</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
 
-  <body>
-    <div class="container-fluid">
-      <%= yield %>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header__content">
+        Pet in a Box
+        <nav class="header__navbar">
+          <ul class="nav">
+            <li>
+              <a href="#" class="nav__item">Sobre</a>
+            </li>
+            <li>
+              <a href="#" class="nav__item">Como Funciona</a>
+            </li>
+            <li>
+              <a href="#" class="nav__item">Produtos</a>
+            </li>
+            <li>
+              <a href="#" class="nav__item">Contato</a>
+            </li>
+            <li>
+              <a href="#" class="nav__item nav__item--login">Login</a>
+            </li>
+            <li>
+              <a href="#" class="nav__item nav__item--sign-up">Assine Agora</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-  </body>
+  </header>
+  <%= yield %>
+</body>
 </html>

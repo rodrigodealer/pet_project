@@ -1,0 +1,33 @@
+//Header
+.header {
+	background: #fff;
+	box-shadow: 0 0 5px rgba(0,0,0,.1);
+	&__content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+//Nav
+.nav {
+	display: flex;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	&__item {
+		display: block;
+		padding: 20px;
+		&:link, &:focus, &:visited {
+			color: $primaryColor;
+			text-decoration: none;
+		}
+		&--login {
+			border: 1px solid $primaryColor;
+		}
+		&--sign-up {
+			background: $primaryColor;
+			border-radius: 3px;
+		}
+	}
+}

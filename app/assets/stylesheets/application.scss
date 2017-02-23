@@ -12,4 +12,15 @@
  *
  *= require_tree .
  *= require_self
- */
+*/
+
+// DO NOT EDIT ORDER OF FILES
+@import "mixins";
+@import "variables";
+@import "normalize";
+
+// Globals
+@import "grid";
+
+// Layout
+@import "header";
