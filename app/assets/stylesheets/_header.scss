@@ -27,14 +27,14 @@
 		}
 		&--login {
 			border: 1px solid $primaryColor;
-			border-radius: 3px;
+			border-radius: 20px;
 			margin-left: 20px;
 		}
 		&--sign-up {
 			margin-left: 20px;
 			background: $primaryColor;
 			border: 1px solid $primaryColor;
-			border-radius: 3px;
+			border-radius: 20px;
 			&:link, &:focus, &:visited {
 				color: #fff;
 			}

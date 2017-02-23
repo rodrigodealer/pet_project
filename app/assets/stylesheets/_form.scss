@@ -1,0 +1,11 @@
+.btn {
+	margin-left: 20px;
+	background: $primaryColor;
+	border: 1px solid $primaryColor;
+	border-radius: 30px;
+	padding: 15px 50px;
+	&:link, &:focus, &:visited {
+		@include text(300, 25px, #fff, uppercase);
+		text-decoration: none;
+	}
+}

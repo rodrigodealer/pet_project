@@ -1,4 +1,58 @@
+// Banner
 .home-banner {
 	height: 680px;
 	background: url(banner.jpg) center;
 }
+
+
+// Como Funciona
+.how-it-works {
+	margin: 50px 0;
+	&__title {
+		@include text(700, 45px, $primaryColor, uppercase);
+		text-align: center;
+		margin-bottom: 0;
+	}
+	&__text {
+		@include text(300, 20px, #757575, none);
+		text-align: center;
+		span {
+			color: $primaryColor;
+		}
+	}
+	&__action {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.how-it-works-list {
+	display: flex;
+	justify-content: center;
+	list-style-type: none;
+	padding: 0;
+	margin: 50px 0;
+}
+
+.how-it-works-item {
+	text-align: center;
+	flex: 0 0 25%;
+	margin: 0 50px;
+	&__icon {
+		font-size: 100px;
+		margin-bottom: 30px;
+		display: block;
+	}
+	&__step {
+		@include text(400, 10px, #757575, uppercase);
+		text-align: center;
+		margin: 0 0 5px;
+	}
+	&__title {
+		@include text(400, 15px, #757575, uppercase);
+		margin: 0;
+	}
+}
+
+
