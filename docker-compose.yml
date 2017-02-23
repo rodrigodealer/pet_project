@@ -9,8 +9,8 @@ services:
      environment:
        MYSQL_ROOT_PASSWORD: root
        MYSQL_DATABASE: pets
-       MYSQL_USER: root
-       MYSQL_PASSWORD: root
+       # MYSQL_USER: root
+       # MYSQL_PASSWORD: root
   redis:
     image: redis:latest
     ports:

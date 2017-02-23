@@ -13,21 +13,31 @@
 .nav {
 	display: flex;
 	list-style-type: none;
+	align-items: center;
 	padding: 0;
-	margin: 0;
+	margin: 15px 0;
 	&__item {
 		display: block;
-		padding: 20px;
+		padding: 13px 20px;
 		&:link, &:focus, &:visited {
+			@include text(400, 13px, $primaryColor, uppercase);
 			color: $primaryColor;
 			text-decoration: none;
+			transition: all .3s;
 		}
 		&--login {
 			border: 1px solid $primaryColor;
+			border-radius: 3px;
+			margin-left: 20px;
 		}
 		&--sign-up {
+			margin-left: 20px;
 			background: $primaryColor;
+			border: 1px solid $primaryColor;
 			border-radius: 3px;
+			&:link, &:focus, &:visited {
+				color: #fff;
+			}
 		}
 	}
 }

@@ -26,3 +26,4 @@ vagrant/.vagrant
 pets
 coverage
 public/uploads
+.DS_Store
