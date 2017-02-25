@@ -1,5 +1,12 @@
-<%= render :partial => "common/search" %>
-  
-<% @products.each do |product| %>
-  <%= render :partial => "common/product_box", locals:{product: product} %>
-<% end %>
+
+<div class="container">
+	
+	<%= render :partial => "common/search" %>
+	<hr>
+	<ul class="products">
+		<% @products.each do |product| %>
+			<%= render :partial => "common/product_box", locals:{product: product} %>
+		<% end %>
+	</ul>
+	
+</div>

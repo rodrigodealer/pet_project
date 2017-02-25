@@ -1,14 +1,24 @@
-<div class="product-item">
-  <div class="col-md-3">
-    <span><h4><%= product.name %> <%= product.brand.name %></h4></span>
-    <span><h5><%= product.price %></h5></span>
-    <span><strong>Tamanhos</strong>: <%= properties_comma_separated(product.properties,'Tamanho') %></span>
-    <span><strong>Cores</strong>: <%= properties_comma_separated(product.properties,'Cor') %></span>
+<li class="products__item">
+	<img src="https://images1.petlove.com.br/products/138889/product/GOLDEN-FORMULA-FRANGO-ADULTOS-MB.jpg" alt="" class="products__item__img">
+	<span class="products__item__brand"><%= product.brand.name %></span>
+	<h2 class="products__item__title"><%= product.name %></h2>
+	<div class="products__item__info products-info">
+		<div class="products-info__price">R$ <%= product.price %></div>
+		<a href="#" class="btn btn--add btn--mini">Adicionar</a>
+	</div>
+	<!-- <div class="product-item">
+		<div class="col-md-3">
+			<span><h4> </h4></span>
+			<span><h5></h5></span>
+			<span><strong>Tamanhos</strong>: <%= properties_comma_separated(product.properties,'Tamanho') %></span>
+			<span><strong>Cores</strong>: <%= properties_comma_separated(product.properties,'Cor') %></span>
 
-    <div>
-      <% label_shuffle(product.tags).each do |tag| %>
-        <span class="label label-<%= tag[:label]%>"><%= tag[:name] %></span>
-      <% end %>
-    </div>
-  </div>
-</div>
+			<div>
+				<% label_shuffle(product.tags).each do |tag| %>
+				<span class="label label-<%= tag[:label]%>"><%= tag[:name] %></span>
+				<% end %>
+			</div>
+		</div>
+	</div> -->
+</li>
+

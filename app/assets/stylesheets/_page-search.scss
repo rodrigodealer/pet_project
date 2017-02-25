@@ -1,0 +1,51 @@
+//Search
+.products {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	&__item {
+		flex: 0 0 23%;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 10px 25px;
+		justify-content: center;
+		background: #fff;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.07);
+		padding: 20px;
+		&:nth-child(4n) {
+			margin-right: 0;
+		}
+		&:nth-child(4n+1),
+		&:nth-child(1) {
+			margin-left: 0;
+		}
+		&__img {
+			height: 150px;
+			object-fit: cover;
+			margin-bottom: 20px;
+		}
+		&__brand {
+			flex: 0 0 100%;
+			@include text(300, 11px, #757575, uppercase);
+			margin: 0 0 2px;
+		}
+		&__title {
+			flex: 0 0 100%;
+			@include text(600, 14px, #757575, uppercase);
+			margin: 0 0 5px;
+		}
+		&__info {
+			flex: 0 0 100%;
+			margin-top: 10px;
+		}
+	}
+}
+
+.products-info {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}

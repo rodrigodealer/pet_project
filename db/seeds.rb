@@ -22,7 +22,7 @@ ProductTag.create(name: 'westie')
 ProductTag.create(name: 'schnauzer')
 
 Product.create(brand: brand,
-  name: 'Pente',
+  name: 'Ração Royal Canin',
   price: 30.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
@@ -36,8 +36,8 @@ Product.create(brand: brand,
     types.name => [['Gato', '40']]
 ])
 Product.create(brand: brand,
-  name: 'Pente',
-  price: 30.0,
+  name: 'Ração para Gatos',
+  price: 35.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
   height: 23,
@@ -49,7 +49,7 @@ Product.create(brand: brand,
     color.name => [['Preto', '10']]
 ])
 Product.create(brand: brand,
-  name: 'Lixa',
+  name: 'Ração para Tubarão',
   price: 10.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
@@ -63,7 +63,7 @@ Product.create(brand: brand,
 ])
 
 Product.create(brand: brand,
-  name: 'Pente',
+  name: 'Ração para Tartaruga',
   price: 30.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
@@ -77,7 +77,7 @@ Product.create(brand: brand,
     types.name => [['Gato', '40']]
 ])
 Product.create(brand: brand,
-  name: 'Pente',
+  name: 'Ração para cobras',
   price: 30.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
@@ -103,7 +103,7 @@ Product.create(brand: brand,
     color.name => [['Preto', '10']]
 ])
 Product.create(brand: brand,
-  name: 'Pente',
+  name: 'Ração para Leopardos',
   price: 30.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
@@ -117,7 +117,7 @@ Product.create(brand: brand,
     types.name => [['Gato', '40']]
 ])
 Product.create(brand: brand,
-  name: 'Pente',
+  name: 'Ração para cavalos',
   price: 30.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
@@ -143,7 +143,7 @@ Product.create(brand: brand,
     color.name => [['Preto', '10']]
 ])
 Product.create(brand: brand,
-  name: 'Pente',
+  name: 'Ração para jacaré',
   price: 30.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',
@@ -157,7 +157,7 @@ Product.create(brand: brand,
     types.name => [['Gato', '40']]
 ])
 Product.create(brand: brand,
-  name: 'Pente',
+  name: 'Ração para guaxinim',
   price: 30.0,
   available: true,
   description: '<strong>Charlesco é a marca</strong><br />Produto recomendado por todos os criadores',

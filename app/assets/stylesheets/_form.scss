@@ -8,4 +8,15 @@
 		@include text(300, 25px, #fff, uppercase);
 		text-decoration: none;
 	}
+	&--mini {
+		padding: 10px 15px;
+		&:link, &:focus, &:visited {
+			font-size: 15px;
+		}
+	}
+}
+
+.btn--add {
+	background: #F27E7F;
+	border-color: #F27E7F;
 }
