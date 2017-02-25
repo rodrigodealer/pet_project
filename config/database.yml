@@ -29,5 +29,6 @@ ci:
 
 production:
   <<: *default
+  host: <%= ENV['DB_HOST'] ? ENV['DB_HOST'] : '127.0.0.1' %>
   username: <%= ENV['DB_USR'] %>
   password: <%= ENV['DB_PWD'] %>
