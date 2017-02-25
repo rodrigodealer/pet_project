@@ -10,7 +10,7 @@ ci:
   <<: *default
   host: 'http://elasticsearch:9200/'
 production:
-  host: <%= ENV['ES_HOST'] %>
+  host: https://pels3miz64:h1zhcsiqk7@pet-in-a-6338750571.eu-west-1.bonsaisearch.net
   transport_options:
     request:
       timeout: !!integer 300

@@ -5,6 +5,16 @@
   register: mysql_installed
   ignore_errors: yes
 
+- name: download foo.conf
+  get_url:
+    url: http://dev.mysql.com/get/mysql-apt-config_0.8.2-1_all.deb
+    dest: /tmp/mysql-apt-config_0.8.2-1_all.deb
+    mode: 0440
+
+- name: Package install
+  become: yes
+  apt: deb=/tmp/mysql-apt-config_0.8.2-1_all.deb
+
 - name: MySQL package
   become: yes
   apt:

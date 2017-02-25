@@ -2,4 +2,4 @@
 local ansible_port=2222 ansible_host=localhost ansible_user=vagrant ansible_ssh_pass=vagrant
 
 [webserver]
-webserver ansible_port=22 ansible_host=46.101.149.190 ansible_user=root
+webserver ansible_port=22 ansible_host=46.101.250.71 ansible_user=root

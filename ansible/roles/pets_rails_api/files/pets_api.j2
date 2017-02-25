@@ -4,5 +4,6 @@ start on filesystem and started docker
 stop on runlevel [!2345]
 respawn
 script
-  /usr/bin/docker run --net=host -e "SECRET_KEY_BASE=4750ca9670bff325ac6fe0a30f6f3cb13593301bed8505e1af2745738b826738209acdcf3e041b24dd681f24d438a0eeae451ad9abcc2df49b0d4a5c3401813f" -e "DB_USR=root" -e "DB_PWD=o9rmVgJTpLa4tPPKr6iuMdM838kcizKeNE6XYf9oHfxXuK3pTGGeq7rDuPeEoWdk" -e "ES_HOST=localhost" -p 3000:3000 -v /var/uploads:/var/uploads registry.gitlab.com/rodrigodealer/pets:1.0.0
+  /usr/bin/docker run --name mysql -v /var/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=o9rmVgJTpLa4tPPKr6iuMdM838kcizKeNE6XYf9oHfxXuK3pTGGeq7rDuPeEoWdk -d mysql:latest
+  /usr/bin/docker run -e "RAILS_SERVE_STATIC_FILES=true" -e "SECRET_KEY_BASE=4750ca9670bff325ac6fe0a30f6f3cb13593301bed8505e1af2745738b826738209acdcf3e041b24dd681f24d438a0eeae451ad9abcc2df49b0d4a5c3401813f" -e "DB_HOST=mysql" -e "DB_USR=root" -e "DB_PWD=o9rmVgJTpLa4tPPKr6iuMdM838kcizKeNE6XYf9oHfxXuK3pTGGeq7rDuPeEoWdk" -e "ES_HOST=https://pels3miz64:h1zhcsiqk7@pet-in-a-6338750571.eu-west-1.bonsaisearch.net" -e "PORT=80" -v /var/uploads:/var/uploads -p 80:80 --link mysql:mysql registry.gitlab.com/rodrigodealer/pets:0.0.1
 end script
