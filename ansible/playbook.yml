@@ -5,6 +5,6 @@
     # - nginx
     - angstwad.docker_ubuntu
     # - { role: elasticsearch, es_instance_name: "node1" }
-    - mysql
+    # - mysql
     - redis
     - pets_rails_api
