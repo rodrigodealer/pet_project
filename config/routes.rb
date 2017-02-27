@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  # match 'users/auth/facebook', to: 'omniauth_callbacks#facebook', via: [:get, :post]
 
   root to: 'home#index'
 

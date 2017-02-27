@@ -2,12 +2,10 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def facebook
     auth = request.env['omniauth.auth']
-
     email = auth.info.email
     if auth.info.email.nil?
       email = get_user_email(auth)
     end
-
     @user = User.facebook(auth: auth, email: email)
 
     if @user.persisted?
@@ -15,7 +13,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, :kind => 'Facebook') if is_navigational_format?
     else
       session['devise.facebook_data'] = auth
-      redirect_to new_user_registration_url
+      redirect_to new_user_registration_path(resource: @user)
     end
   end
 

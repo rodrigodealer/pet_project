@@ -13,7 +13,7 @@ class User < ApplicationRecord
   devise
 
   def self.facebook(auth:, email:)
-    self.where(provider: auth.provider, uid: auth.uid).first_or_create! do |user|
+    self.where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.provider = auth.provider
       user.uid = auth.uid
       user.email = email
