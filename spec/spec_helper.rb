@@ -1,5 +1,6 @@
 require 'simplecov'
 require 'omniauth'
+require 'factory_girl_rails'
 SimpleCov.start
 RSpec.configure do |config|
 
