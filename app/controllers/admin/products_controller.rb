@@ -1,5 +1,5 @@
 class Admin::ProductsController < ApplicationController
-  before_filter :tags_strip_null, :only => [:create, :update]
+  before_action :tags_strip_null, :only => [:create, :update]
 
   def index
     @products = Product.all
