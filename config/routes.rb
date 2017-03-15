@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     end
   end
 
+  get '/profile', to: 'users#profile'
+
+  patch '/profile', to: 'users#update_profile'
+
   post '/cart', to: 'cart#create'
 
   get '/cart', to: 'cart#index'
