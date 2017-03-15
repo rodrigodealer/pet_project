@@ -24,6 +24,6 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def get_user_email(request)
     email = RestClient.get "https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cemail&access_token=#{request.credentials.token}"
-    email = JSON.parse(email.body)['email']
+    JSON.parse(email.body)['email']
   end
 end
