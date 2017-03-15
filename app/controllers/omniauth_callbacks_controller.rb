@@ -13,7 +13,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, :kind => 'Facebook') if is_navigational_format?
     else
       session['devise.facebook_data'] = auth
-      redirect_to new_user_registration_path(resource: @user)
+      flash[:user] = @user
+      redirect_to new_user_registration_path(@user)
     end
   end
 
@@ -22,7 +23,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def get_user_email(request)
-    email = RestClient.get "https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cemail&access_token=#{request.credentials.token}", {accept: :json}
+    email = RestClient.get "https://graph.facebook.com/v2.8/me?fields=id%2Cname%2Cemail&access_token=#{request.credentials.token}"
     email = JSON.parse(email.body)['email']
   end
 end
