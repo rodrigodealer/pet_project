@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get '/cart', to: 'cart#index'
 
-  get '/p(/:id)', to: 'products#show'
+  get '/p(/:id)', to: 'products#show', as: 'product'
 
   get '/search', to: 'products#search'
 

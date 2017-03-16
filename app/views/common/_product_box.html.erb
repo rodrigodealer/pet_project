@@ -1,7 +1,7 @@
 <li class="products__item">
 	<img src="https://images1.petlove.com.br/products/138889/product/GOLDEN-FORMULA-FRANGO-ADULTOS-MB.jpg" alt="" class="products__item__img">
 	<span class="products__item__brand"><%= product.brand.name %></span>
-	<h2 class="products__item__title"><%= product.name %></h2>
+	<h2 class="products__item__title"><%= link_to product.name, product_path(product.id) %></h2>
 	<div class="products__item__info products-info">
 		<div class="products-info__price">R$ <%= product.price %></div>
 		<a href="#" class="btn btn--add btn--mini">Adicionar</a>
@@ -21,4 +21,3 @@
 		</div>
 	</div> -->
 </li>
-

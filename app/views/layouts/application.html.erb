@@ -31,7 +31,9 @@
               <a href="#" class="nav__item">Contato</a>
             </li>
             <li>
-              <a href="#" class="nav__item nav__item--login">Login</a>
+              <%= link_to_if(!current_user, 'Login', new_user_session_path, class: 'nav__item nav__item--login') do
+                link_to(user_link(current_user), profile_path, class: 'nav__item nav__item--login')
+              end %>
             </li>
             <li>
               <a href="#" class="nav__item nav__item--sign-up">Assine Agora</a>

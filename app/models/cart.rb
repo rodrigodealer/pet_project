@@ -4,7 +4,7 @@ class Cart
 
   attr_accessor :user_id, :items
 
-  def initialize(user_id:)
+  def initialize(user_id)
     @user_id = user_id
     @items = []
   end
@@ -21,13 +21,13 @@ class Cart
   def self.get(user_id)
     items = redis.get(user_id)
     if items
-      Cart.new(user_id: user_id).with_json_items(items)
+      Cart.new(user_id).with_json_items(items)
     else
-      Cart.new(user_id: user_id)
+      Cart.new(user_id)
     end
   end
 
   def save
-    Cart.redis.set(@user_id, self.items.to_json)
+    Cart.redis.set(user_id, self.items.to_json)
   end
 end
