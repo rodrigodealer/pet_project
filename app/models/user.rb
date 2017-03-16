@@ -24,5 +24,6 @@ class User < ApplicationRecord
 
   def default_values
     self.kind ||= 'U'
+    self.uuid = SecureRandom.uuid
   end
 end

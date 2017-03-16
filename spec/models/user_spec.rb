@@ -33,4 +33,9 @@ RSpec.describe User, type: :model do
     subject.kind = 'A'
     expect(subject).to be_valid
   end
+
+  it 'gets the same uuid' do
+    subject.id = 1000
+    expect(subject.uuid).to be_eql('10')
+  end
 end
