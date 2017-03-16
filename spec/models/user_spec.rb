@@ -35,7 +35,9 @@ RSpec.describe User, type: :model do
   end
 
   it 'gets the same uuid' do
-    subject.id = 1000
-    expect(subject.uuid).to be_eql('10')
+    subject.email = 'test@test.com'
+    subject.password = '12345678'
+    subject.save
+    expect(subject.uuid).to_not be_nil
   end
 end
