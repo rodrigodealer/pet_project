@@ -11,5 +11,11 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe UsersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#user_link' do
+    subject { User.new(uid: 10) }
+
+    it 'generates the link' do
+      expect(helper.user_link(subject)).to match(/http:\/\/graph.facebook.com\/10\/picture/)
+    end
+  end
 end

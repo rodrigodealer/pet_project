@@ -1,9 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe CartController, type: :controller do
+  include Devise::Test::ControllerHelpers
+
   let(:cart) { double(Cart) }
-  xit 'renders index' do
+  let(:user) { FactoryGirl.create(:user) }
+
+  it 'renders index' do
+    allow(Cart).to receive(:get) { [] }
+
     get :index
+    
+    expect(assigns(:cart)).to be_truthy
     expect(response).to be_ok
   end
 
@@ -31,13 +39,15 @@ RSpec.describe CartController, type: :controller do
     expect(response).to be_redirect
   end
 
-  xit 'creates a cart' do
+  it 'creates a cart' do
+    sign_in user
     allow(cart).to receive(:with_items) { cart }
     allow(cart).to receive(:save) { true }
     allow(Cart).to receive(:get) { cart }
 
     post :create, params: { :cart => { :product_id => 1, :qty => 1, :property => {'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Gato'} }}
 
+    expect(assigns(:cart)).to be_truthy
     expect(response).to be_ok
   end
 end

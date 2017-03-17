@@ -8,11 +8,10 @@ class CartController < ApplicationController
 
   def create
     begin
-      @cart = cart_params
       id = cart_cookie(id: 'cart', value: SecureRandom.uuid)
-      mycart = Cart.get(current_user.uuid)
-      mycart.items << cart_params
-      mycart.save
+      @cart = Cart.get(current_user.uuid)
+                  .with_items(cart_params)
+                  .save
       render action: :index
     rescue
       redirect_to cart_path

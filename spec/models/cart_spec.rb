@@ -42,8 +42,9 @@ RSpec.describe Cart, type: :model do
     allow(Redis).to receive(:new) { redis }
     obj = [{'product_id' => '1'}]
 
-    subject.with_items(obj).save
-
+    result = subject.with_items(obj).save
+    
+    expect(result).to be_eql([obj].to_json)
     expect(redis.get('1')).to eq("[[{\"product_id\":\"1\"}]]")
   end
 end

@@ -81,9 +81,9 @@ RSpec.describe Admin::ProductTagsController, type: :controller do
         expect(assigns(:product_tag)).to be_persisted
       end
 
-      xit "redirects to the created product_tag" do
+      it "redirects to the created product_tag" do
         post :create, params: {product_tag: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(ProductTag.last)
+        expect(response).to be_redirect
       end
     end
 
@@ -103,26 +103,29 @@ RSpec.describe Admin::ProductTagsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { name: 'Blah'}
       }
 
       it "updates the requested product_tag" do
         product_tag = ProductTag.create! valid_attributes
         put :update, params: {id: product_tag.to_param, product_tag: new_attributes}
         product_tag.reload
-        skip("Add assertions for updated state")
+
+        expect(flash[:notice]).to match(/successfully updated/)
       end
 
       it "assigns the requested product_tag as @product_tag" do
         product_tag = ProductTag.create! valid_attributes
         put :update, params: {id: product_tag.to_param, product_tag: valid_attributes}
         expect(assigns(:product_tag)).to eq(product_tag)
+        
+        expect(flash[:notice]).to match(/successfully updated/)
       end
 
-      xit "redirects to the product_tag" do
+      it "redirects to the product_tag" do
         product_tag = ProductTag.create! valid_attributes
         put :update, params: {id: product_tag.to_param, product_tag: valid_attributes}
-        expect(response).to redirect_to(admin_product_tag_path(product_tag))
+        expect(response).to be_redirect
       end
     end
 

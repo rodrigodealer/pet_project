@@ -29,5 +29,6 @@ class Cart
 
   def save
     Cart.redis.set(user_id, self.items.to_json)
+    self.items.to_json
   end
 end
