@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'zip/show'
+
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
 
   root to: 'home#index'
@@ -26,6 +28,8 @@ Rails.application.routes.draw do
   get '/p(/:id)', to: 'products#show', as: 'product'
 
   get '/search', to: 'products#search'
+
+  get '/zip/:cep', to: 'zip#fetch', as: 'zip'
 
   post '/search', to: 'products#search_from_post'
   get '/search/:name', to: 'products#search'
