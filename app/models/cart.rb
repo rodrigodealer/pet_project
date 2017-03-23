@@ -2,11 +2,15 @@
 class Cart
   extend RedisSupport
 
-  attr_accessor :user_id, :items
+  attr_accessor :user_id, :objs
 
   def initialize(user_id)
     @user_id = user_id
-    @items = []
+    @objs = []
+  end
+
+  def items
+    self.objs.flatten
   end
 
   def with_json_items(items)
@@ -15,13 +19,12 @@ class Cart
 
   def with_items(items_to_add)
     has_copy = false
-    @items.flatten.map do |item|
+    @objs.flatten.map do |item|
       item['qty'] = add_sum(item, items_to_add) if is_in_cart?(item, items_to_add)
       has_copy = true if is_in_cart?(item, items_to_add)
       item
     end
-
-    @items << items_to_add.first if has_copy == false
+    @objs << items_to_add.flatten if has_copy == false
     self
   end
 
@@ -35,8 +38,8 @@ class Cart
   end
 
   def save
-    Cart.redis.set(user_id, self.items.to_json)
-    self.items.to_json
+    Cart.redis.set(user_id, self.objs.to_json)
+    self.objs.to_json
   end
 
   private
