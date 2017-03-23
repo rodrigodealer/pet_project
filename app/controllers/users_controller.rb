@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = current_user
+    @addresses = Address.where(user_id: current_user.id)
   end
 
   def update_profile
@@ -18,13 +19,6 @@ class UsersController < ApplicationController
   end
 
   private
-  def validate_logged_user
-    if current_user.nil?
-      flash[:notice] = 'Você não está logado.'
-      redirect_to root_path
-    end
-  end
-
   def profile_params
     if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
       params.require(:user).permit(:name, :email, :pets)

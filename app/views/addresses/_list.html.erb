@@ -1,0 +1,16 @@
+<% @addresses.each do |address| %>
+  <div>
+    <strong><%= address.label %> (<%= address.kind %>)</strong>
+
+    <div>Rua: <%= address.street %></div>
+    <div>No: <%= address.number %></div>
+    <div>Complemento: <%= address.other %></div>
+    <div>CEP: <%= address.zip %></div>
+    <div>Bairro: <%= address.neighborhood %></div>
+    <div>Cidade: <%= address.city %></div>
+    <div>Estado: <%= address.state %></div>
+    <div><%= link_to 'Editar esse endereço', edit_address_path(address) %></div>
+  </div>
+<% end %>
+
+<div><%= link_to 'Quero adicionar outro endereço', new_address_path %></div>
