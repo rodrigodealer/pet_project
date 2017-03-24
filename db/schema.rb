@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170323235703) do
+ActiveRecord::Schema.define(version: 20170324000018) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "label"
@@ -32,6 +32,21 @@ ActiveRecord::Schema.define(version: 20170323235703) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
+    t.integer  "plan_id"
+    t.text     "items",               limit: 65535
+    t.float    "total",               limit: 24
+    t.integer  "shipping_address_id"
+    t.integer  "billing_address_id"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.index ["billing_address_id"], name: "index_orders_on_billing_address_id", using: :btree
+    t.index ["plan_id"], name: "index_orders_on_plan_id", using: :btree
+    t.index ["shipping_address_id"], name: "index_orders_on_shipping_address_id", using: :btree
+    t.index ["user_id"], name: "index_orders_on_user_id", using: :btree
   end
 
   create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -98,5 +113,9 @@ ActiveRecord::Schema.define(version: 20170323235703) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "orders", "addresses", column: "billing_address_id"
+  add_foreign_key "orders", "addresses", column: "shipping_address_id"
+  add_foreign_key "orders", "plans"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "brands"
 end

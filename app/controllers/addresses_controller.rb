@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   before_action :validate_logged_user
-  before_action :logged_user_same_user_address, :only => [ :edit, :update ]
+  before_action :logged_user_same_user_address, :only => [ :edit, :update, :destroy ]
 
 
   def index
@@ -32,6 +32,16 @@ class AddressesController < ApplicationController
       redirect_to :profile
     else
       flash[:error] = 'Erro ao atualizar endereço. Verifique seus dados.'
+      redirect_to :profile
+    end
+  end
+
+  def destroy
+    if @address.destroy
+      flash[:success] = 'Endereço apagado'
+      redirect_to :profile
+    else
+      flash[:error] = 'Erro ao apagar endereço. Verifique seus dados.'
       redirect_to :profile
     end
   end

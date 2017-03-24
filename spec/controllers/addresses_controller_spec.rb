@@ -57,6 +57,52 @@ RSpec.describe AddressesController, type: :controller do
     end
   end
 
+  describe 'DELETE #destroy' do
+    let(:address) { double(Address) }
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'redirects without logged user' do
+      delete :destroy, params: { id: 1 }
+
+      expect(response).to be_redirect
+      expect(flash[:notice]).to match(/logado/)
+    end
+
+    it 'unauthorized with logged user different as address user' do
+      sign_in user
+      allow(address).to receive(:user_id) { 0 }
+      allow(Address).to receive(:find) { address }
+
+      delete :destroy, params: { id: 1 }
+
+      expect(response).to be_unauthorized
+    end
+
+    it 'renders with logged user' do
+      sign_in user
+      allow(address).to receive(:user_id) { user.id }
+      allow(address).to receive(:destroy) { true }
+      allow(Address).to receive(:find) { address }
+
+      delete :destroy, params: { id: 1 }
+
+      expect(response).to be_redirect
+      expect(flash[:success]).to match(/Endereço apagado/)
+    end
+
+    it 'renders with logged user' do
+      sign_in user
+      allow(address).to receive(:user_id) { user.id }
+      allow(address).to receive(:destroy) { false }
+      allow(Address).to receive(:find) { address }
+
+      delete :destroy, params: { id: 1 }
+
+      expect(response).to be_redirect
+      expect(flash[:error]).to match(/Erro ao apagar endereço/)
+    end
+  end
+
   describe 'PATCH #update' do
     let(:address) { double(Address) }
     let(:user) { FactoryGirl.create(:user) }

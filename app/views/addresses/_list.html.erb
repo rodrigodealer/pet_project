@@ -10,6 +10,8 @@
     <div>Cidade: <%= address.city %></div>
     <div>Estado: <%= address.state %></div>
     <div><%= link_to 'Editar esse endereço', edit_address_path(address) %></div>
+    <div><%= link_to 'Apagar esse endereço', address_path(address), :confirm => "Tem certeza que deseja apagar?", :method => :delete %></div>
+
   </div>
 <% end %>
 
