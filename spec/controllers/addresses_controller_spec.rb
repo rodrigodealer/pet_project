@@ -21,6 +21,24 @@ RSpec.describe AddressesController, type: :controller do
     end
   end
 
+  describe 'GET #new' do
+    it 'renders with logged user' do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      sign_in FactoryGirl.create(:user)
+
+      get :new
+
+      expect(response).to be_ok
+    end
+
+    it 'redirects without logged user' do
+      get :new
+
+      expect(response).to be_redirect
+      expect(flash[:notice]).to match(/logado/)
+    end
+  end
+
   describe 'GET #edit' do
     let(:address) { double(Address) }
     let(:user) { FactoryGirl.create(:user) }

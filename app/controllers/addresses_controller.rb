@@ -2,7 +2,6 @@ class AddressesController < ApplicationController
   before_action :validate_logged_user
   before_action :logged_user_same_user_address, :only => [ :edit, :update, :destroy ]
 
-
   def index
     @addresses = Address.where(user_id: current_user.id)
   end
