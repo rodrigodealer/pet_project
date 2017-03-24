@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
   before_action :validate_logged_user
-  before_action :logged_user_same_user_address, :only => [ :edit, :update, :destroy ]
+  before_action -> { logged_user_same_user(Address) }, only: [ :edit, :update, :destroy ]
 
   def index
     @addresses = Address.where(user_id: current_user.id)
@@ -26,7 +26,7 @@ class AddressesController < ApplicationController
   end
 
   def update
-    if @address.update_attributes(address_params)
+    if @resource.update_attributes(address_params)
       flash[:success] = 'Endereço atualizado'
       redirect_to :profile
     else
@@ -36,20 +36,12 @@ class AddressesController < ApplicationController
   end
 
   def destroy
-    if @address.destroy
+    if @resource.destroy
       flash[:success] = 'Endereço apagado'
       redirect_to :profile
     else
       flash[:error] = 'Erro ao apagar endereço. Verifique seus dados.'
       redirect_to :profile
-    end
-  end
-
-  private
-  def logged_user_same_user_address
-    @address = Address.find(params[:id])
-    unless @address.user_id == current_user.id
-      render :file => "public/401.html", :status => :unauthorized
     end
   end
 
