@@ -4,6 +4,7 @@ class UsersController < ApplicationController
   def profile
     @user = current_user
     @addresses = Address.where(user_id: current_user.id)
+    @plans = Plan.where(user_id: current_user.id)
   end
 
   def update_profile

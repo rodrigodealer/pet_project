@@ -47,6 +47,6 @@ class PlansController < ApplicationController
 
   private
   def plan_params
-    params.require(:plan).permit(:period, :value, :label)
+    params.require(:plan).permit(:period, :label)
   end
 end

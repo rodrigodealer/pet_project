@@ -11,5 +11,29 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe PlansHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe '#real_name' do
+    it 'when W' do
+      expect(helper.real_name('W')).to be_eql('Semanal')
+    end
+
+    it 'when CW' do
+      expect(helper.real_name('CW')).to be_eql('Quinzenal')
+    end
+
+    it 'when M' do
+      expect(helper.real_name('M')).to be_eql('Mensal')
+    end
+
+    it 'when FFD' do
+      expect(helper.real_name('FFD')).to be_eql('45 dias')
+    end
+
+    it 'when CM' do
+      expect(helper.real_name('CM')).to be_eql('Bimestral')
+    end
+
+    it 'when blah' do
+      expect(helper.real_name('blah')).to be_eql('Outro')
+    end
+  end
 end

@@ -7,7 +7,6 @@
 <div class="form-group">
   <label for="brand" class="col-sm-2 control-label">Tipo de endereço</label>
   <div class="col-sm-10">
-    <!-- <%= text_field(:address, :kind) %> -->
     <%= select(:address, :kind, [['Cobrança', 'B'], ['Entrega', 'D']], { include_blank: true }) %>
   </div>
 </div>

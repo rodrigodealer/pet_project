@@ -1,0 +1,12 @@
+<% @plans.each do |plan| %>
+  <div>
+    <strong><%= plan.label %></strong>
+
+    <div>Periodicidade: <%= real_name(plan.period) %></div>
+    <div><%= link_to 'Editar plano', edit_plan_path(plan) %></div>
+    <div><%= link_to 'Apagar plano', plan_path(plan), :confirm => "Tem certeza que deseja apagar?", :method => :delete %></div>
+
+  </div>
+<% end %>
+
+<div><%= link_to 'Quero adicionar outro plano', new_plan_path %></div>
