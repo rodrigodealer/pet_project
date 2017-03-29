@@ -1,14 +1,15 @@
 class CartController < ApplicationController
   include Cookies
+  before_action :validate_logged_user
 
   def index
-    id = cart_cookie(id: 'cart', value: SecureRandom.uuid)
+    id = cart_cookie(id: 'cart', value: current_user.uuid)
     @cart = Cart.get(id)
   end
 
   def create
     begin
-      id = cart_cookie(id: 'cart', value: SecureRandom.uuid)
+      id = cart_cookie(id: 'cart', value: current_user.uuid)
       @cart = Cart.get(current_user.uuid)
                   .with_items(cart_params)
                   .save
