@@ -3,13 +3,15 @@ class CartController < ApplicationController
   before_action :validate_logged_user
 
   def index
-    id = cart_cookie(id: 'cart', value: current_user.uuid)
-    @cart = Cart.get(id)
+    @cart = Cart.get(current_user.uuid)
+    @items = Cart.get(current_user.uuid).items.map do |i|
+      i['product'] = Product.find(i['product_id'])
+      i
+    end
   end
 
   def create
     begin
-      id = cart_cookie(id: 'cart', value: current_user.uuid)
       @cart = Cart.get(current_user.uuid)
                   .with_items(cart_params)
                   .save

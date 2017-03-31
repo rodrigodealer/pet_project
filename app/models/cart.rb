@@ -13,6 +13,10 @@ class Cart
     self.objs.flatten
   end
 
+  def sum
+    items.inject(0) { |sum, i| sum + Product.find(i['product_id']).price * i['qty'].to_f }
+  end
+
   def with_json_items(items)
     with_items(JSON.parse(items))
   end
@@ -24,7 +28,7 @@ class Cart
       has_copy = true if is_in_cart?(item, items_to_add)
       item
     end
-    @objs << items_to_add.flatten if has_copy == false
+    @objs << items_to_add if has_copy == false
     self
   end
 
@@ -44,10 +48,10 @@ class Cart
 
   private
   def add_sum(item_in_cart, item_to_add)
-    (item_in_cart['qty'].to_i + item_to_add.first['qty'].to_i).to_s
+    (item_in_cart['qty'].to_i + item_to_add['qty'].to_i).to_s
   end
 
   def is_in_cart?(item_in_cart, item_to_add)
-    item_in_cart['property'] == item_to_add.first['property'] && item_in_cart['product_id'] == item_to_add.first['product_id']
+    item_in_cart['property'] == item_to_add['property'].to_h && item_in_cart['product_id'] == item_to_add['product_id']
   end
 end

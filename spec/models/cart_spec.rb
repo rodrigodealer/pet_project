@@ -7,9 +7,9 @@ RSpec.describe Cart, type: :model do
   let(:redis) { MockRedis.new }
 
   describe 'duplication protection for cart' do
-    let(:obj1) { [{'product_id' => '1', 'qty' => '1', 'property' => { 'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Gato' }}] }
-    let(:obj2) { [{'product_id' => '1', 'qty' => '3', 'property' => { 'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Gato' }}] }
-    let(:obj3) { [{'product_id' => '1', 'qty' => '3', 'property' => { 'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Cachorro' }}] }
+    let(:obj1) { {'product_id' => '1', 'qty' => '1', 'property' => { 'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Gato' }} }
+    let(:obj2) { {'product_id' => '1', 'qty' => '3', 'property' => { 'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Gato' }} }
+    let(:obj3) { {'product_id' => '1', 'qty' => '3', 'property' => { 'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Cachorro' }} }
 
     before do
       allow(Redis).to receive(:new) { redis }
@@ -21,7 +21,7 @@ RSpec.describe Cart, type: :model do
 
       expect(result1.objs.size).to be_eql(1)
       expect(result2.objs.size).to be_eql(1)
-      expect(result2.objs.first.first['qty']).to be_eql('4')
+      expect(result2.objs.first['qty']).to be_eql('4')
     end
 
     it 'has two items (equal items) and add a new one' do
@@ -30,11 +30,27 @@ RSpec.describe Cart, type: :model do
       result3 = subject.with_items(obj3)
 
       expect(result3.objs.size).to be_eql(2)
-      expect(result3.objs.first.first['qty']).to be_eql('4')
-      expect(result3.objs.last.first['qty']).to be_eql('3')
+      expect(result3.objs.first['qty']).to be_eql('4')
+      expect(result3.objs.last['qty']).to be_eql('3')
 
       expect(result3.items.first['qty']).to be_eql('4')
       expect(result3.items.last['qty']).to be_eql('3')
+    end
+  end
+
+  describe 'gets the sum for the cart' do
+    let(:obj1) { {'product_id' => '1', 'qty' => '1', 'property' => { 'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Gato' }} }
+    let(:obj2) { {'product_id' => '2', 'qty' => '3', 'property' => { 'Tamanho' => 'G', 'Cor' => 'Preto', 'Tipo' => 'Gato' }} }
+    let(:product) { double(Product) }
+
+    it 'returns the sum' do
+      allow(product).to receive(:price).and_return(30)
+      allow(Product).to receive(:find) { product }
+      
+      subject.with_items(obj1)
+      subject.with_items(obj2)
+
+      expect(subject.sum).to be_eql(120.0)
     end
   end
 
