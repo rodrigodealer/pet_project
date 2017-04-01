@@ -6,18 +6,9 @@ RSpec.describe CartController, type: :controller do
   let(:cart) { double(Cart) }
   let(:user) { FactoryGirl.create(:user) }
 
-  it 'doesnt render index' do
-    allow(Cart).to receive(:get) { [] }
-
-    get :index
-
-    expect(assigns(:cart)).to be_falsy
-    expect(response).to be_redirect
-  end
-
   it 'renders index' do
     sign_in user
-    allow(Cart).to receive(:get) { [] }
+    allow(Cart).to receive(:get) { Cart.new(1) }
 
     get :index
 

@@ -26,5 +26,5 @@ Devise.setup do |config|
 
   config.sign_out_via = :get
 
-  config.omniauth :facebook, '596654090544487', '0151eb6a7e18702d8b74590a6c7c07ff', scope: 'email,public_profile', info_fields: 'email,public_profile'
+  config.omniauth :facebook, '1203725573077981', '7fb858f4301f919ea56b97e70bbfe965', scope: 'email,public_profile', info_fields: 'email'
 end

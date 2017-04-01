@@ -41,6 +41,11 @@ class Cart
     end
   end
 
+  def self.move_to(user_id, user)
+    Cart.redis.rename(user_id, user)
+    Cart.redis.del(user_id)
+  end
+
   def save
     Cart.redis.set(user_id, self.objs.to_json)
     self.objs.to_json

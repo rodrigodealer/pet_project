@@ -1,10 +1,12 @@
 class CartController < ApplicationController
   include Cookies
-  before_action :validate_logged_user
+  # before_action :validate_logged_user
 
   def index
-    @cart = Cart.get(current_user.uuid)
-    @items = Cart.get(current_user.uuid).items.map do |i|
+    Cart.move_to(cookies['cart'], current_user.uuid) if has_anonymous_cart?
+    value = cart_cookie(id: 'cart', value: SecureRandom.uuid)
+    @cart = Cart.get(value)
+    @items = Cart.get(value).items.map do |i|
       i['product'] = Product.find(i['product_id'])
       i
     end
@@ -12,7 +14,7 @@ class CartController < ApplicationController
 
   def create
     begin
-      @cart = Cart.get(current_user.uuid)
+      @cart = Cart.get(cart_cookie(id: 'cart', value: SecureRandom.uuid))
                   .with_items(cart_params)
                   .save
       render action: :index
